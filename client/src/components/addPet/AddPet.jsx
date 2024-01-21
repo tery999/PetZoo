@@ -1,5 +1,5 @@
 import { useState } from "react"
-import * as PetService from "../../services/Pets"
+import * as PetService from "../../services/petsService"
 
 export default function AddPet() {
    const [pet, setPet] = useState({
@@ -15,7 +15,7 @@ export default function AddPet() {
     }
 
     const submitHandler = async (e) => {
-        debugger;
+        // debugger;
         e.preventDefault();
         PetService.AddPet(pet);
     }

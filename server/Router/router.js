@@ -13,4 +13,10 @@ router.post("/Pets/Add", async (req, res) =>{
  res.status(200).send("Send");
 })
 
+router.get("/Pets" , async (req,res) => {
+   const allPets = await Pet.find()
+   console.log(allPets);
+   res.json(allPets);
+})
+
 module.exports = router;

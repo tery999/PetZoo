@@ -12,3 +12,11 @@ export async function AddPet (pet) {
         body: JSON.stringify(pet)
     })
 }
+
+export async function getAllPets () {
+    const URL = "http://localhost:3030/Pets";
+    const fetchedPets = await fetch(URL);
+    const data = await fetchedPets.json();
+    console.log(data);
+    return data;
+}
