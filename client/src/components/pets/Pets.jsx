@@ -16,11 +16,11 @@ export default function Pets() {
         <div className={styles.PetsContainer}>
             <p>This is PETS page</p>
             {pets &&
-                <div>
+                <>
                     {pets.map((pet) => {
                        return <PetCard pet={pet} />
                     })}
-                </div>
+                </>
             }
 
             {!pets &&

@@ -19,4 +19,11 @@ router.get("/Pets" , async (req,res) => {
    res.json(allPets);
 })
 
+router.get("/Pets/:id" , async (req,res) => {
+   const petId = req.params.id
+   const onePet = await Pet.findById(petId)
+   console.log("THIS IS SINGLE PET" , onePet);
+   res.json(onePet);
+})
+
 module.exports = router;

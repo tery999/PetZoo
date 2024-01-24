@@ -20,3 +20,12 @@ export async function getAllPets () {
     console.log(data);
     return data;
 }
+
+export async function getOnePet (id) {
+    debugger;
+    const URL = `http://localhost:3030/Pets/${id}`;
+    const fetchedPets = await fetch(URL);
+    const data = await fetchedPets.json();
+    console.log("THIS IS SINGLE PET CLT", data);
+    return data;
+}
