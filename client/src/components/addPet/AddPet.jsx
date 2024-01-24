@@ -5,8 +5,11 @@ import styles from "./AddPet.module.css"
 export default function AddPet() {
     const [pet, setPet] = useState({
         name: "",
+        image: "",
+        color: "",
         species: "",
-        age: ""
+        age: "",
+        description: ""
     });
 
     const changeHandler = (e) => {
@@ -54,6 +57,7 @@ export default function AddPet() {
                     placeholder="Your pet's species" />
 
                 <input type="number"
+                className={styles.age}
                     name="age"
                     id="age"
                     value={pet.age}

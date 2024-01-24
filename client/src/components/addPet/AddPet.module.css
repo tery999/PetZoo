@@ -25,6 +25,11 @@
     text-align: center;
 }
 
+.age {
+   padding-left: 17px;
+   width: 235px !important;
+}
+
 .AddPetForm > textarea {
     width: 350px;
     margin: 15px;
