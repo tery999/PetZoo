@@ -1,0 +1,35 @@
+.AddPetBox {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+
+}
+
+.AddPetForm {
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+.AddPetForm > input {
+    width: 250px;
+    margin: 15px;
+    height: 35px;
+    text-align: center;
+}
+
+.AddPetForm > textarea {
+    width: 350px;
+    margin: 15px;
+    height: 155px;
+    padding: 15px 5px 10px 5px;
+    text-align: center;
+    resize: none;
+}
