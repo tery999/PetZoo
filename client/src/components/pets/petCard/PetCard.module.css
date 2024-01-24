@@ -1,0 +1,13 @@
+.PetCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.PetCard > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

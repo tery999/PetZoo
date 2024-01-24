@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import PetCard from "./petCard/PetCard";
 import * as PetService from "../../services/petsService"
+import styles from "./Pets.module.css"
 
 export default function Pets() {
     const [pets, setPets] = useState(null);
@@ -12,7 +13,7 @@ export default function Pets() {
     }, []);
 
     return (
-        <div>
+        <div className={styles.PetsContainer}>
             <p>This is PETS page</p>
             {pets &&
                 <div>
