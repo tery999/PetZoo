@@ -20,10 +20,15 @@ router.get("/Pets" , async (req,res) => {
 })
 
 router.get("/Pets/:id" , async (req,res) => {
+   try {
    const petId = req.params.id
    const onePet = await Pet.findById(petId)
    console.log("THIS IS SINGLE PET" , onePet);
    res.json(onePet);
+   } catch (err) {
+      console.log("THIS IS ERROR", err);
+      res.status(400).json(err);
+   }
 })
 
 module.exports = router;
