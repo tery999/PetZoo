@@ -18,7 +18,7 @@ export default function Pets() {
             {pets &&
                 <>
                     {pets.map((pet) => {
-                       return <PetCard pet={pet} />
+                       return <PetCard key={pet._id} pet={pet} />
                     })}
                 </>
             }

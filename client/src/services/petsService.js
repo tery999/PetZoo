@@ -26,6 +26,9 @@ export async function getOnePet (id) {
     try {
     const URL = `http://localhost:3030/Pets/${id}`;
     const fetchedPets = await fetch(URL);
+    if (!fetchedPets.ok) {
+        return null;
+    }
     const data = await fetchedPets.json();
     console.log("THIS IS SINGLE PET CLT", data);
     return data;
