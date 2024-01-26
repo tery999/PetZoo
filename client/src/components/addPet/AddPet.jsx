@@ -69,7 +69,10 @@ export default function AddPet() {
                             onChange={changeHandler}
                             placeholder="Your pet's age" />
 
-                        <select value={pet.gender} onChange={changeHandler}>
+                        <select value={pet.gender}
+                        name="gender"
+                        id="gender"
+                         onChange={changeHandler}>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Unknown/Other">Unknown/Other</option>

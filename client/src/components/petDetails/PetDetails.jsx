@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getOnePet } from "../../services/petsService";
 import { useParams } from 'react-router-dom';
+import PetDetailsCard from "./PetDetailsCard";
 
 export default function PetDetails() {
     debugger;
@@ -13,13 +14,15 @@ export default function PetDetails() {
             .then(data => setPet(data));
     }, [id])
     return (
-        <div>
-            {pet ?
-                <div>
-                    <h1>This is details page</h1>
-                    <h1> {pet.name}</h1>
-                </div> : 
-                <h1> Such a pet doesnt exist</h1>}
-        </div>
+        <>
+            {pet &&
+                <PetDetailsCard {...pet} />
+            }
+
+            {!pet &&
+                <h2>Pet doesnt exist </h2>
+            }
+        </>
+
     )
 }

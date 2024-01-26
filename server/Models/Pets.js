@@ -6,6 +6,7 @@ const petsSchema = new mongoose.Schema({
   image: String,
   color: String,
   age: Number,
+  gender: String,
   description: String
 });
 

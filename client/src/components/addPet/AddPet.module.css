@@ -26,6 +26,15 @@
     text-align: center;
     resize: none;
 }
+.AddPetForm input , select {
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    margin-top: 10px;
+    box-sizing: content-box;
+    border: 1px black solid;
+    padding: 1px;
+}
 
 .FirstRow {
     display: flex;
