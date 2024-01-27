@@ -10,18 +10,32 @@
     display: flex;
 }
 
-/* .ImageDiv > img {
-    width: 200px;
-    height: 200px;
-} */
+.ImageDivNotClicked {
+    display: flex;
+    justify-content: center;
+}
 
 .imageNotClicked {
     width: 200px;
     height: 200px;
 }
 
+.ImageDivClicked {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .imageClicked {
     max-width: 1000px;
     max-height: 800px;
     z-index: 3;
+
 }

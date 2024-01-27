@@ -15,10 +15,13 @@ export default function PetDetailsCard(pet) {
         <div className={styles.PetContainer}>
             <h1>NAME: {pet.name}</h1>
             <div className={styles.PetContainerColumn}>
-                <div className={styles.ImageDiv}>
-                  {!imageOverlay && <img src={pet.image} alt="image" className={styles.imageNotClicked} onClick={clickImageHandler}/>}  
-                  {imageOverlay && <img src={pet.image} alt="image" className={styles.imageClicked} onClick={clickImageHandler}/>}  
-                </div>
+                {!imageOverlay && <div className={styles.ImageDivNotClicked}>
+                    <img src={pet.image} alt="image" className={styles.imageNotClicked} onClick={clickImageHandler} />
+                </div>} 
+
+                {imageOverlay && <div className={styles.ImageDivClicked}>
+                    <img src={pet.image} alt="image" className={styles.imageClicked} onClick={clickImageHandler} />
+                </div>} 
                 <div className={styles.Information}>
                     <p>
                         species: {pet.species}
