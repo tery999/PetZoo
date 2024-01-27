@@ -5,3 +5,23 @@
     align-content: center;
     align-items: center;
 }
+
+.PetContainerColumn {
+    display: flex;
+}
+
+/* .ImageDiv > img {
+    width: 200px;
+    height: 200px;
+} */
+
+.imageNotClicked {
+    width: 200px;
+    height: 200px;
+}
+
+.imageClicked {
+    max-width: 1000px;
+    max-height: 800px;
+    z-index: 3;
+}
