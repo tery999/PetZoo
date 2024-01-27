@@ -21,6 +21,16 @@ export async function getAllPets () {
     return data;
 }
 
+export async function deletePet (id) {
+    const URL = `http://localhost:3030/Pets/${id}`;
+    const deletedPet = await fetch(URL, {
+        method: "DELETE"
+    });
+    const data = await deletedPet.json();
+    console.log(data);
+    return data;
+}
+
 export async function getOnePet (id) {
     debugger;
     try {

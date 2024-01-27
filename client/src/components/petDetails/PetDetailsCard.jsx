@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as styles from "./PetDetails.module.css"
+import * as PetService from "../../services/petsService"
 
 export default function PetDetailsCard(pet) {
     const [imageOverlay, setImageOverlay] = useState(false);
@@ -10,6 +11,10 @@ export default function PetDetailsCard(pet) {
         } else {
             setImageOverlay(true);
         }
+    }
+
+    const deletePetHandler = () => {
+        PetService.deletePet(pet._id);
     }
     return (
         <div className={styles.PetContainer}>
@@ -40,7 +45,7 @@ export default function PetDetailsCard(pet) {
                     </p>
                 </div>
             </div>
-            <button>
+            <button onClick={deletePetHandler}>
                 DELETE
             </button>
             <button>

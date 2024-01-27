@@ -31,4 +31,16 @@ router.get("/Pets/:id" , async (req,res) => {
    }
 })
 
+router.delete("/Pets/:id" , async (req,res) => {
+   try {
+   const petId = req.params.id
+   console.log("THIS IS THE PET ID", petId);
+   const deletedPet = await Pet.findByIdAndDelete(petId);
+   res.json({message: "Delete succesfully"});
+   } catch (err) {
+      console.log("THIS IS ERROR", err);
+      res.status(400).json(err);
+   }
+})
+
 module.exports = router;
