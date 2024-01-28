@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as styles from "./PetDetails.module.css"
 import * as PetService from "../../services/petsService"
+import { Link } from "react-router-dom";
 
 export default function PetDetailsCard(pet) {
     const [imageOverlay, setImageOverlay] = useState(false);
@@ -22,11 +23,11 @@ export default function PetDetailsCard(pet) {
             <div className={styles.PetContainerColumn}>
                 {!imageOverlay && <div className={styles.ImageDivNotClicked}>
                     <img src={pet.image} alt="image" className={styles.imageNotClicked} onClick={clickImageHandler} />
-                </div>} 
+                </div>}
 
                 {imageOverlay && <div className={styles.ImageDivClicked}>
                     <img src={pet.image} alt="image" className={styles.imageClicked} onClick={clickImageHandler} />
-                </div>} 
+                </div>}
                 <div className={styles.Information}>
                     <p>
                         species: {pet.species}
@@ -48,9 +49,9 @@ export default function PetDetailsCard(pet) {
             <button onClick={deletePetHandler}>
                 DELETE
             </button>
-            <button>
-                EDIT
-            </button>
+            <Link to={`/Pet/${pet._id}/Edit`}>
+                <button>Edit</button>
+            </Link>
         </div>
     )
 }

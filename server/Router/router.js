@@ -43,4 +43,19 @@ router.delete("/Pets/:id" , async (req,res) => {
    }
 })
 
+router.put("/Pets/:id" , async (req,res) => {
+   try {
+   const petId = req.params.id
+   const updateInfo = req.body;
+   // new:true - returns the modified value
+   const editedPet = await Pet.findByIdAndUpdate(petId , updateInfo, {
+      new:true
+   })
+   res.json(editedPet);
+   } catch (err) {
+      console.log("THIS IS ERROR", err);
+      res.status(400).json(err);
+   }
+})
+
 module.exports = router;
