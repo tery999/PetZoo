@@ -47,3 +47,14 @@ export async function getOnePet (id) {
         return null;
     }
 }
+
+export async function editPet (pet) {
+    const editPetURL = `http://localhost:3030/Pets/${pet._id}`;
+   const updatedPet = await fetch( editPetURL, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+          },
+        body: JSON.stringify(pet)
+    })
+}
