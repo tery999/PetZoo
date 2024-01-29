@@ -1,0 +1,43 @@
+.editDivBox {
+    display: flex;
+    justify-content: center;
+}
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+.firstDiv , .secondDiv {
+    display: flex;
+    gap: 50px ;
+}
+
+.textAreaDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 10px;
+    width: 500px;
+    
+}
+
+input , select {
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    margin-top: 35px;
+    box-sizing: content-box;
+    border: 1px black solid;
+    padding: 1px;
+}
+
+.textArea {
+    width: 600px;
+    height: 200px;
+}
