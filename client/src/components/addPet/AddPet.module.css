@@ -36,6 +36,10 @@
     padding: 1px;
 }
 
+.AddPetForm select {
+    margin-top: 10px;
+}
+
 .FirstRow {
     display: flex;
     gap: 50px;
@@ -45,3 +49,4 @@
     display: flex;
     flex-direction: column;
 }
+

@@ -4,7 +4,15 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    width: 400px;
+    width: 280px;
+    border: 2px black solid;
+    background-color: aquamarine;
+    border-radius: 10%;
+    transition: box-shadow 0.5s;
+}
+
+.PetCard:hover {
+    box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.7);
 }
 
 .PetCard > div {
@@ -14,6 +22,9 @@
 }
 
 .PetCard img {
+    padding-top: 10px;
     max-width: 200px;
     height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
 }

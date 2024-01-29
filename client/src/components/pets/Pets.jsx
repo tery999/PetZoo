@@ -14,7 +14,6 @@ export default function Pets() {
 
     return (
         <div className={styles.PetsContainer}>
-            <p>This is PETS page</p>
             {pets &&
                 <>
                     {pets.map((pet) => {
