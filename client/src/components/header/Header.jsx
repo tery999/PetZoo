@@ -18,6 +18,16 @@ export default function Header () {
                     Add Pet
                 </Link>
             </div>
+            <div>
+                <Link to="/Login">
+                    Login
+                </Link>
+            </div>
+            <div>
+                <Link to="/Register">
+                    Register
+                </Link>
+            </div>
         </div>
     )
 }
