@@ -7,19 +7,25 @@ import PetDetails from "./components/petDetails/PetDetails";
 import EditPet from "./components/editPet/EditPet";
 import Login from "./components/Login/Login";
 import Register from "./components/register/Register";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { UserContext } from "./contexts/userContext";
 
 function App() {
-  const UserContext = createContext();
 
   const [auth, setAuth] = useState({});
+  console.log("THIS IS AUTH OBJECT", auth);
 
   const changeAuthHandler = (info) => {
     setAuth(info)
   }
 
+  useEffect ( ()=> {
+    console.log("THIS IS AUTH OBJECT IN USE EFFECT", auth);
+  },[auth])
+
   const value = {
-    logged: false
+    logged: false,
+    changeAuthHandler
   }
 
   return (

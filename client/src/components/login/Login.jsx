@@ -1,8 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import * as styles from "./login.module.css"
 import * as userService from "../../services/userService"
+import { UserContext } from "../../contexts/userContext";
 
 export default function Login() {
+    const {changeAuthHandler} = useContext(UserContext);
     const [login, setLogin] = useState({
         username: "",
         password: ""
@@ -15,10 +17,12 @@ export default function Login() {
     }
 
     const loginSubmitHandler = async(e) => {
+        debugger;
             e.preventDefault();
            const loginInformation =  await userService.login(login);
            localStorage.setItem("UserInfo", JSON.stringify(loginInformation));
-           console.log(loginInformation);
+           changeAuthHandler(loginInformation);
+           console.log("THIS IS OBJECT IN LOGINSUBMITHANDLER",loginInformation);
 
     }
     return (
