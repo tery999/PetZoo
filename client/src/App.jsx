@@ -7,12 +7,23 @@ import PetDetails from "./components/petDetails/PetDetails";
 import EditPet from "./components/editPet/EditPet";
 import Login from "./components/Login/Login";
 import Register from "./components/register/Register";
+import { createContext, useContext, useState } from "react";
 
 function App() {
+  const UserContext = createContext();
 
+  const [auth, setAuth] = useState({});
+
+  const changeAuthHandler = (info) => {
+    setAuth(info)
+  }
+
+  const value = {
+    logged: false
+  }
 
   return (
-    <>
+    <UserContext.Provider value={value}>
     <Header/>
     <Routes>
       <Route path="/" element={<Home />} />
@@ -23,7 +34,7 @@ function App() {
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Register />} />
     </Routes>
-    </>
+    </UserContext.Provider>
   )
 }
 

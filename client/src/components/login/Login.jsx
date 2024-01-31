@@ -15,9 +15,9 @@ export default function Login() {
     }
 
     const loginSubmitHandler = async(e) => {
-        debugger; 
             e.preventDefault();
            const loginInformation =  await userService.login(login);
+           localStorage.setItem("UserInfo", JSON.stringify(loginInformation));
            console.log(loginInformation);
 
     }
