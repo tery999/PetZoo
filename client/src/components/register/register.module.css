@@ -1,9 +1,9 @@
-.loginContainer {
+.registerContainer {
     display: flex;
     justify-content: center;
 }
 
-.loginForm {
+.registerForm {
     /* display: flex;
     flex-direction: column; */
     background-color: aqua;

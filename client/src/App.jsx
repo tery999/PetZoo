@@ -6,6 +6,7 @@ import AddPet from "./components/addPet/AddPet";
 import PetDetails from "./components/petDetails/PetDetails";
 import EditPet from "./components/editPet/EditPet";
 import Login from "./components/Login/Login";
+import Register from "./components/register/Register";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Route path="/Pet/:id" element={<PetDetails />} />
       <Route path="/Pet/:id/Edit" element={<EditPet />} />
       <Route path="/Login" element={<Login />} />
+      <Route path="/Register" element={<Register />} />
     </Routes>
     </>
   )
