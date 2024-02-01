@@ -9,6 +9,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/register/Register";
 import { createContext, useContext, useEffect, useState } from "react";
 import { UserContext } from "./contexts/userContext";
+import Logout from "./components/Logout";
 
 function App() {
 
@@ -19,14 +20,18 @@ function App() {
     setAuth(info)
   }
 
-  useEffect ( ()=> {
-    console.log("THIS IS AUTH OBJECT IN USE EFFECT", auth);
-  },[auth])
 
   const value = {
-    logged: false,
+    logged: !!auth?.username,
+    username: auth?.username ?? null,
+    userId: auth?.userId ?? null,
     changeAuthHandler
   }
+
+  useEffect ( ()=> {
+    console.log("THIS IS AUTH OBJECT IN USE EFFECT", auth);
+    console.log("THIS IS VALUE CONTEXT IN USE EFFECT", value);
+  },[auth])
 
   return (
     <UserContext.Provider value={value}>
@@ -39,6 +44,7 @@ function App() {
       <Route path="/Pet/:id/Edit" element={<EditPet />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Register />} />
+      <Route path="/Logout" element={<Logout />} />
     </Routes>
     </UserContext.Provider>
   )
