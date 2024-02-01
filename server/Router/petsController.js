@@ -1,11 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const Pet = require("../Models/Pets")
+const Pet = require("../Models/Pets");
+const AuthMiddleware = require("../AuthMiddleware");
+
+router.post("*" , AuthMiddleware);
+router.put("*" , AuthMiddleware);
+router.delete("*" , AuthMiddleware);
 
 router.post("/Add", async (req, res) =>{
  const petDetails = req.body;
  try {
     console.log(petDetails);
+    console.log("THIS IS THE ID" ,petDetails.userId);
     await Pet.create(petDetails);
  } catch (e) {
     console.log(e);

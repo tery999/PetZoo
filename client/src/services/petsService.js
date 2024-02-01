@@ -1,15 +1,19 @@
 
 
 const addPetURL = "http://localhost:3030/Pets/Add"
+let token = JSON.parse(localStorage.getItem("UserInfo") );
 
 export async function AddPet (pet) {
     debugger;
+    console.log("TOKEN IN ADD PET" , token);
+
     await fetch( addPetURL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "Authorization" : token.token,
           },
-        body: JSON.stringify(pet)
+        body: JSON.stringify({...pet, ownerId: token.userId})
     })
 }
 
