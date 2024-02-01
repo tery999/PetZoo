@@ -5,11 +5,11 @@ import Pets from "./components/pets/Pets";
 import AddPet from "./components/addPet/AddPet";
 import PetDetails from "./components/petDetails/PetDetails";
 import EditPet from "./components/editPet/EditPet";
-import Login from "./components/Login/Login";
+import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import { createContext, useContext, useEffect, useState } from "react";
 import { UserContext } from "./contexts/userContext";
-import Logout from "./components/Logout";
+import Logout from "./components/logout/Logout";
 
 function App() {
 
