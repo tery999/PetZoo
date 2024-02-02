@@ -7,7 +7,7 @@ export default function PetCard(pet) {
 
         <div className={styles.PetCard}>
             <div>
-                <Link to={`/Pet/${pet.pet._id}`}>
+                <Link className={styles.linkPointer} to={`/Pet/${pet.pet._id}` }>
                     <img src={pet.pet.image} alt="" />
                 </Link>
                 <h1> {pet.pet.name} </h1>

@@ -28,3 +28,7 @@
     border-radius: 50%;
     cursor: pointer !important;
 }
+
+.linkPointer {
+    cursor: pointer;
+}

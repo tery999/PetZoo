@@ -5,8 +5,7 @@ let token = JSON.parse(localStorage.getItem("UserInfo") );
 
 export async function AddPet (pet) {
     debugger;
-    console.log("TOKEN IN ADD PET" , token);
-
+    console.log("TOKEN OBJ IN ADD PET" , token);
     await fetch( addPetURL, {
         method: "POST",
         headers: {

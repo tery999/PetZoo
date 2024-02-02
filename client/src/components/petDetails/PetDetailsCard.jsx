@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import * as styles from "./PetDetails.module.css"
 import * as PetService from "../../services/petsService"
 import { Link } from "react-router-dom";
+import { UserContext } from "../../contexts/userContext";
+
 
 export default function PetDetailsCard(pet) {
     const [imageOverlay, setImageOverlay] = useState(false);
+    const { userId } = useContext(UserContext)
+    console.log("USER ID IS " , userId);
+    console.log("OWNER ID IS " , pet.ownerId);
 
     const clickImageHandler = () => {
         if (imageOverlay === true) {
@@ -46,12 +51,16 @@ export default function PetDetailsCard(pet) {
                     </p>
                 </div>
             </div>
-            <button onClick={deletePetHandler}>
-                DELETE
-            </button>
-            <Link to={`/Pet/${pet._id}/Edit`}>
-                <button>Edit</button>
-            </Link>
+            {userId === pet.ownerId &&
+                <div>
+                    <button onClick={deletePetHandler}>
+                        DELETE
+                    </button>
+                    <Link to={`/Pet/${pet._id}/Edit`}>
+                        <button>Edit</button>
+                    </Link>
+                </div>}
+
         </div>
     )
 }
