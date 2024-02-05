@@ -1,8 +1,10 @@
 import { useState } from "react"
 import * as PetService from "../../services/petsService"
 import styles from "./AddPet.module.css"
+import { petErrors } from "../../services/petErrors";
 
 export default function AddPet() {
+    const [error, setError] = useState({});
     const [pet, setPet] = useState({
         name: "",
         image: "",
@@ -20,9 +22,14 @@ export default function AddPet() {
     }
 
     const submitHandler = async (e) => {
-        // debugger;
+        debugger;
         e.preventDefault();
+
+        const results = petErrors(pet)
+        setError(results);
+        if (!error) {
         PetService.AddPet(pet);
+        }
     }
     return (
         <div className={styles.AddPetBox}>
@@ -36,6 +43,9 @@ export default function AddPet() {
                             value={pet.name}
                             onChange={changeHandler}
                             placeholder="Your pet's name" />
+                            { error.name && 
+                            <p className={styles.errorMessage}>{error.name}</p>
+                            }
 
                         <input type="text"
                             name="image"
@@ -43,6 +53,9 @@ export default function AddPet() {
                             value={pet.image}
                             onChange={changeHandler}
                             placeholder="Image URL" />
+                             { error.image && 
+                            <p className={styles.errorMessage}>{error.image}</p>
+                            }
 
                         <input type="text"
                             name="color"
@@ -50,6 +63,9 @@ export default function AddPet() {
                             value={pet.color}
                             onChange={changeHandler}
                             placeholder="Your pet's colour" />
+                             { error.color && 
+                            <p className={styles.errorMessage}>{error.color}</p>
+                            }
 
                     </div>
 
@@ -60,6 +76,9 @@ export default function AddPet() {
                             value={pet.species}
                             onChange={changeHandler}
                             placeholder="Your pet's species" />
+                            { error.species && 
+                            <p className={styles.errorMessage}>{error.species}</p>
+                            }
 
                         <input type="number"
                             className={styles.age}
@@ -68,6 +87,9 @@ export default function AddPet() {
                             value={pet.age}
                             onChange={changeHandler}
                             placeholder="Your pet's age" />
+                             { error.age && 
+                            <p className={styles.errorMessage}>{error.age}</p>
+                            }
 
                         <select value={pet.gender}
                         name="gender"

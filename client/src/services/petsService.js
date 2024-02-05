@@ -1,11 +1,11 @@
 
 
 const addPetURL = "http://localhost:3030/Pets/Add"
-let token = JSON.parse(localStorage.getItem("UserInfo") );
+let token = await JSON.parse(localStorage.getItem("UserInfo") );
 
 export async function AddPet (pet) {
-    debugger;
-    console.log("TOKEN OBJ IN ADD PET" , token);
+    // debugger;
+    // console.log("TOKEN OBJ IN ADD PET" , token);
     await fetch( addPetURL, {
         method: "POST",
         headers: {
@@ -27,7 +27,11 @@ export async function getAllPets () {
 export async function deletePet (id) {
     const URL = `http://localhost:3030/Pets/${id}`;
     const deletedPet = await fetch(URL, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : token.token,
+          },
     });
     const data = await deletedPet.json();
     console.log(data);
@@ -57,7 +61,9 @@ export async function editPet (pet) {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
+            "Authorization" : token.token,
           },
         body: JSON.stringify(pet)
     })
 }
+

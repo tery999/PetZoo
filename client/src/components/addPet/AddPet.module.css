@@ -19,7 +19,7 @@
 
 
 .AddPetForm > textarea {
-    width: 350px;
+    width: 450px;
     margin: 15px;
     height: 155px;
     padding: 15px 5px 10px 5px;
@@ -27,7 +27,7 @@
     resize: none;
 }
 .AddPetForm input , select {
-    width: 200px;
+    width: 300px;
     height: 30px;
     text-align: center;
     margin-top: 10px;
@@ -38,6 +38,7 @@
 
 .AddPetForm select {
     margin-top: 10px;
+    width: 300px;
 }
 
 .FirstRow {
@@ -48,5 +49,12 @@
 .ColumnBoxes {
     display: flex;
     flex-direction: column;
+}
+
+.errorMessage {
+    color: darkred;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 

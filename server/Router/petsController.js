@@ -11,7 +11,6 @@ router.post("/Add", async (req, res) =>{
  const petDetails = req.body;
  try {
     console.log(petDetails);
-    console.log("THIS IS THE ID" ,petDetails.userId);
     await Pet.create(petDetails);
  } catch (e) {
     console.log(e);
