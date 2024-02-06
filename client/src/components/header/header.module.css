@@ -14,7 +14,7 @@
 }
 
 .menu {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .hiddenLinksDiv {
@@ -32,6 +32,7 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    transition: 0.5s;
   }
 
   .hiddenLinksDiv a:hover {
@@ -41,3 +42,28 @@
 .menu:hover .hiddenLinksDiv  {
     display: block;
 }
+
+.button {
+    background-color: #FFFFDD;
+    border: none;
+    transition: 0.5s;
+    width: 80px;
+    height: 30px;
+}
+
+.button:hover{
+    background-color: #FFFFDD;
+    filter: brightness(80%);
+}
+
+.button:hover .icon{
+   display: none;
+}
+
+.minusIcon{
+    display: none;
+ }
+
+.button:hover .minusIcon{
+    display: inline;
+ }

@@ -2,6 +2,9 @@ import { Link, NavLink } from "react-router-dom"
 import { UserContext } from "../../contexts/userContext"
 import { useContext, useState } from "react";
 import * as styles from "./header.module.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars} from "@fortawesome/free-solid-svg-icons"
+import { faMinus} from "@fortawesome/free-solid-svg-icons"
 
 
 export default function Header() {
@@ -10,7 +13,9 @@ export default function Header() {
     return (
         <div className={styles.header}>
             <div className={styles.menu}>
-                <button>Menu</button>
+                <button className={styles.button}>   
+                <FontAwesomeIcon icon={faBars} className={styles.icon}/>  
+                <FontAwesomeIcon icon={faMinus} className={styles.minusIcon}/> Menu</button>
                 <div className={styles.hiddenLinksDiv}>
                 <Link to={"/"}>
                     Home
