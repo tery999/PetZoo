@@ -2,9 +2,11 @@ import { useEffect, useState } from "react"
 import * as PetService from "../../services/petsService"
 import { useParams } from "react-router-dom";
 import * as styles from "./EditPet.module.css";
+import { petErrors } from "../../services/petErrors"
 
 export default function EditPet() {
-    debugger;
+    // debugger;
+    const [error, setError] = useState({});
     const { id } = useParams();
     const [pet, setPet] = useState();
     useEffect(() => {
@@ -18,8 +20,13 @@ export default function EditPet() {
         setPet(state => ({ ...state, [name]: value }))
     }
 
-    const editHandler = () => {
-        PetService.editPet(pet);
+    const editHandler = (e) => {
+        e.preventDefault();
+        const results = petErrors(pet);
+        setError(results);
+        if (!error) {
+            PetService.editPet(pet);
+        }
     }
     return (
         <div className={styles.editDivBox}>
@@ -29,53 +36,76 @@ export default function EditPet() {
             {pet &&
                 <form className={styles.editForm} onSubmit={editHandler}>
                     <div className={styles.firstDiv}>
+                        <div>
+                            <label htmlFor="name"> Name:
+                                <input type="text"
+                                    name="name"
+                                    id="name"
+                                    value={pet.name}
+                                    onChange={changeHandler}
+                                    placeholder="Your pet's name" />
+                            </label>
+                            {error.name &&
+                                <p className={styles.errorMessage}>{error.name}</p>
+                            }
+                        </div>
 
-                        <label htmlFor="name"> Name:
-                            <input type="text"
-                                name="name"
-                                id="name"
-                                value={pet.name}
-                                onChange={changeHandler}
-                                placeholder="Your pet's name" />
-                        </label>
-
-                        <label htmlFor="image"> Image:
-                            <input type="text"
-                                name="image"
-                                id="image"
-                                value={pet.image}
-                                onChange={changeHandler}
-                                placeholder="Image URL" />
-                        </label>
-                        <label htmlFor="color"> Color:
-                            <input type="text"
-                                name="color"
-                                id="color"
-                                value={pet.color}
-                                onChange={changeHandler}
-                                placeholder="Your pet's colour" />
-                        </label>
+                        <div>
+                            <label htmlFor="image"> Image:
+                                <input type="text"
+                                    name="image"
+                                    id="image"
+                                    value={pet.image}
+                                    onChange={changeHandler}
+                                    placeholder="Image URL" />
+                            </label>
+                            {error.image &&
+                                <p className={styles.errorMessage}>{error.image}</p>
+                            }
+                        </div>
+                        <div>
+                            <label htmlFor="color"> Color:
+                                <input type="text"
+                                    name="color"
+                                    id="color"
+                                    value={pet.color}
+                                    onChange={changeHandler}
+                                    placeholder="Your pet's colour" />
+                            </label>
+                            {error.color &&
+                                <p className={styles.errorMessage}>{error.color}</p>
+                            }
+                        </div>
                     </div>
 
                     <div className={styles.secondDiv}>
+                        <div>
+                            <label htmlFor="species"> Species:
+                                <input type="text"
+                                    name="species"
+                                    id="species"
+                                    value={pet.species}
+                                    onChange={changeHandler}
+                                    placeholder="Your pet's species" />
+                            </label>
+                            {error.species &&
+                                <p className={styles.errorMessage}>{error.species}</p>
+                            }
+                        </div>
 
-                        <label htmlFor="species"> Species:
-                            <input type="text"
-                                name="species"
-                                id="species"
-                                value={pet.species}
-                                onChange={changeHandler}
-                                placeholder="Your pet's species" />
-                        </label>
-
-                        <label htmlFor="age"> Age:
-                            <input type="number"
-                                name="age"
-                                id="age"
-                                value={pet.age}
-                                onChange={changeHandler}
-                                placeholder="Your pet's age" />
-                        </label>
+                        <div>
+                            <label htmlFor="age"> Age:
+                                <input type="number"
+                                    name="age"
+                                    id="age"
+                                    value={pet.age}
+                                    onChange={changeHandler}
+                                    placeholder="Your pet's age" />
+                            </label>
+                            {error.number &&
+                                <p className={styles.errorMessage}>{error.number}</p>
+                            }
+                        </div>
                         <label htmlFor="gender"> Gender:
                             <select value={pet.gender}
                                 name="gender"

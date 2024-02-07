@@ -41,3 +41,10 @@ input , select {
     width: 600px;
     height: 200px;
 }
+
+.errorMessage {
+    margin-top: 5px;
+    margin-bottom: 2px;
+    color: red;
+    font-weight: bold;
+}

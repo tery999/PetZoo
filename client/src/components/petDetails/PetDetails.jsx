@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import PetDetailsCard from "./PetDetailsCard";
 
 export default function PetDetails() {
-    debugger;
+    // debugger;
     const { id } = useParams()
     const [pet, setPet] = useState(null);
     console.log(pet);

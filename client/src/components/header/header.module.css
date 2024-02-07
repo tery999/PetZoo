@@ -3,7 +3,8 @@
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-    background-color: #61A3BA;
+    background: rgb(145,230,187);
+background: radial-gradient(circle, rgba(145,230,187,1) 13%, rgba(138,218,178,1) 74%, rgba(113,204,158,1) 100%);
     height: 50px;
 }
 
@@ -56,7 +57,7 @@
     filter: brightness(80%);
 }
 
-.button:hover .icon{
+.menu:hover .icon{
    display: none;
 }
 
@@ -64,6 +65,6 @@
     display: none;
  }
 
-.button:hover .minusIcon{
+ .menu:hover .minusIcon{
     display: inline;
  }
