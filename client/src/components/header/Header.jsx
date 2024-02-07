@@ -5,6 +5,7 @@ import * as styles from "./header.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars} from "@fortawesome/free-solid-svg-icons"
 import { faMinus} from "@fortawesome/free-solid-svg-icons"
+import { faRightToBracket} from "@fortawesome/free-solid-svg-icons"
 
 
 export default function Header() {
@@ -30,6 +31,7 @@ export default function Header() {
             </div>
 
             <div className={styles.userLogInOut}>
+            <FontAwesomeIcon icon={faRightToBracket} className={styles.userIcon} />
                 {!logged &&
                     <>
                         <div>

@@ -14,6 +14,13 @@ background: radial-gradient(circle, rgba(145,230,187,1) 13%, rgba(138,218,178,1)
     margin-right: 20px;
 }
 
+.userLogInOut a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
 .menu {
     margin-left: 10px;
 }
@@ -37,7 +44,7 @@ background: radial-gradient(circle, rgba(145,230,187,1) 13%, rgba(138,218,178,1)
   }
 
   .hiddenLinksDiv a:hover {
-    background-color: aqua;
+    background-color: #dadfbe;
   }
 
 .menu:hover .hiddenLinksDiv  {
@@ -67,4 +74,8 @@ background: radial-gradient(circle, rgba(145,230,187,1) 13%, rgba(138,218,178,1)
 
  .menu:hover .minusIcon{
     display: inline;
+ }
+
+ .userIcon {
+    padding-top: 2px;
  }

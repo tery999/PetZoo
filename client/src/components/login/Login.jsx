@@ -18,15 +18,24 @@ export default function Login() {
     }
 
     const loginSubmitHandler = async(e) => {
+        debugger;
             e.preventDefault();
             if (login.username.trim() === "" || login.password.trim() === "") {
                 setError(true);
                 return;
             }
+            try {
            const loginInformation =  await userService.login(login);
+           if ( !Response.ok) {
+            setError(true);
+            return;
+           }
            localStorage.setItem("UserInfo", JSON.stringify(loginInformation));
            changeAuthHandler(loginInformation);
            console.log("THIS IS OBJECT IN LOGINSUBMITHANDLER",loginInformation);
+            } catch (err) {
+                setError(true);
+            }
 
     }
     return (
@@ -37,7 +46,6 @@ export default function Login() {
                      onChange={changeHandler}
                      value={login.username} />
                 </label>
-                {error && <p className={styles.errorMsg}>Invalid use123rname or password</p> }
 
                 <label className={styles.labelColumn} htmlFor="password"> Password
                     <input type="password" name="password" id="password" 
@@ -49,6 +57,7 @@ export default function Login() {
                 <div>
                     <input type="submit" />
                 </div>
+                {error && <p className={styles.errorMsg}>Invalid username or password</p> }
 
             </form>
         </div>
