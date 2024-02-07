@@ -5,11 +5,14 @@ import styles from "./Pets.module.css"
 
 export default function Pets() {
     const [pets, setPets] = useState(null);
+    const [petsLoaded, setpetsLoaded] = useState(false);
     debugger;
 
     useEffect(() => {
        PetService.getAllPets()
        .then(results => setPets(results));
+
+       setpetsLoaded(true);
     }, []);
 
     return (

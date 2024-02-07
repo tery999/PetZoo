@@ -54,8 +54,8 @@ export default function Login() {
                 </label>
 
 
-                <div>
-                    <input type="submit" />
+                <div className={styles.submitButtonDiv}>
+                    <input type="submit" value="Login" className={styles.submitButton}/>
                 </div>
                 {error && <p className={styles.errorMsg}>Invalid username or password</p> }
 
