@@ -1,6 +1,10 @@
 import { useState } from "react";
 import * as styles from "./register.module.css"
 import * as userService from "../../services/userService"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCat, faShieldDog } from "@fortawesome/free-solid-svg-icons"
+import { faShieldCat } from "@fortawesome/free-solid-svg-icons"
+import { faPaw } from "@fortawesome/free-solid-svg-icons"
 
 export default function Register() {
     const [register, setRegister] = useState({
@@ -25,9 +29,9 @@ export default function Register() {
         // console.log(register);
         debugger;
         e.preventDefault();
+        setServerError(null);
         if (register.password !== register.repeatPassword) {
             setPassError(true);
-            setEmptyError(false);
             return;
         }
         setPassError(false);
@@ -37,7 +41,6 @@ export default function Register() {
             return;
         }
         setEmptyError(false);
-
         try {
            await userService.register(register);
         } catch (err) {
@@ -53,6 +56,7 @@ export default function Register() {
                     <input  type="text" name="username" id="username"
                         onChange={changeHandler}
                         value={register.username} />
+                        <FontAwesomeIcon icon={faCat } size="lg" className={styles.registerIcon}/>
                 </label>
 
                 {serverError &&
@@ -63,16 +67,19 @@ export default function Register() {
                     <input  type="password" name="password" id="password"
                         onChange={changeHandler}
                         value={register.password} />
+                        <FontAwesomeIcon icon={faShieldCat } size="lg" className={styles.registerIcon}/>
                 </label>
 
                 <label className={styles.labelColumn} htmlFor="repeatPassword">Repeat Password
                     <input  type="password" name="repeatPassword" id="repeatPassword"
                         onChange={changeHandler}
                         value={register.repeatPassword} />
+                         <FontAwesomeIcon icon={faShieldDog } size="lg" className={styles.registerIcon}/>
                 </label>
 
-                <div>
+                <div className={styles.submitButtonDiv}>
                     <input type="submit"  value="Register" className={styles.submitButton} />
+                    <FontAwesomeIcon icon={faPaw } size="lg" className={styles.buttonIcon} />
                 </div>
 
                 {PassError === true &&
