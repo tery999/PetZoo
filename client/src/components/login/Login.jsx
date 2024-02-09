@@ -26,10 +26,6 @@ export default function Login() {
             }
             try {
            const loginInformation =  await userService.login(login);
-           if ( !Response.ok) {
-            setError(true);
-            return;
-           }
            localStorage.setItem("UserInfo", JSON.stringify(loginInformation));
            changeAuthHandler(loginInformation);
            console.log("THIS IS OBJECT IN LOGINSUBMITHANDLER",loginInformation);

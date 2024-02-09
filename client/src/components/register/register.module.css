@@ -4,7 +4,40 @@
 }
 
 .registerForm {
-    /* display: flex;
-    flex-direction: column; */
-    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    background-color: #D0F288;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    margin-top: 50px;
+    padding-top: 20px;
+    width: 300px;
+    height: 350px;
+}
+
+.labelColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.labelColumn > input {
+    margin-top: 15px;
+    border-radius: 15px;
+    border: none;
+}
+
+.errorMsg {
+    color: red;
+    font-weight: bold;
+}
+
+.submitButton{
+    background-color: #DF826C;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
 }

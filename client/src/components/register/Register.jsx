@@ -10,6 +10,8 @@ export default function Register() {
     });
 
     const [PassError, setPassError] = useState(false);
+    const [emptyError, setEmptyError] = useState(false);
+    const [serverError, setServerError] = useState();
 
 
     const changeHandler = (e) => {
@@ -19,45 +21,67 @@ export default function Register() {
     }
 
 
-    const registerSubmitHandler = (e) => {
+    const registerSubmitHandler = async (e) => {
         // console.log(register);
+        debugger;
         e.preventDefault();
         if (register.password !== register.repeatPassword) {
             setPassError(true);
+            setEmptyError(false);
             return;
         }
-        userService.register(register);
+        setPassError(false);
 
-    }
+        if (register.password.trim() === "" || register.username.trim() === "") {
+            setEmptyError(true);
+            return;
+        }
+        setEmptyError(false);
+
+        try {
+           await userService.register(register);
+        } catch (err) {
+            setServerError(err.message)
+        }
+        
+
+    };
     return (
         <div className={styles.registerContainer}>
             <form className={styles.registerForm} onSubmit={registerSubmitHandler}>
-                <label htmlFor="username"> Username
-                    <input type="text" name="username" id="username"
+                <label className={styles.labelColumn} htmlFor="username"> Username
+                    <input  type="text" name="username" id="username"
                         onChange={changeHandler}
                         value={register.username} />
                 </label>
 
-                <label htmlFor="password"> Password
-                    <input type="password" name="password" id="password"
+                {serverError &&
+                    <p className={styles.errorMsg}>{serverError}</p>
+                }
+
+                <label className={styles.labelColumn} htmlFor="password"> Password
+                    <input  type="password" name="password" id="password"
                         onChange={changeHandler}
                         value={register.password} />
                 </label>
 
-                <label htmlFor="repeatPassword">Repeat Password
-                    <input type="repeatPassword" name="repeatPassword" id="repeatPassword"
+                <label className={styles.labelColumn} htmlFor="repeatPassword">Repeat Password
+                    <input  type="password" name="repeatPassword" id="repeatPassword"
                         onChange={changeHandler}
                         value={register.repeatPassword} />
                 </label>
 
+                <div>
+                    <input type="submit"  value="Register" className={styles.submitButton} />
+                </div>
+
                 {PassError === true &&
-                    <p>Password missmatch!</p>
+                    <p className={styles.errorMsg}>Password missmatch!</p>
                 }
 
-
-                <div>
-                    <input type="submit" />
-                </div>
+                {emptyError === true &&
+                    <p className={styles.errorMsg}>Fill all fields!</p>
+                }
 
             </form>
         </div>
