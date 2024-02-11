@@ -8,16 +8,31 @@
 
 .PetContainerColumn {
     display: flex;
+    position: relative;
+    padding: 15px;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.601);
+    /* background-image: url("./pngtree-cartoon-giraffe-lion-forest-leaves-animal-background-picture-image_1236676.jpg"); */
+    min-width: 400px;
+    min-height: 240px;
+    border: 5px solid #D0F288;
+    border-radius: 15px;
 }
 
 .ImageDivNotClicked {
     display: flex;
+    padding: 5px;
+    height: 200px;
     justify-content: center;
+    /* border: 2px solid rgba(128, 128, 128, 0.304); */
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+
 }
 
 .imageNotClicked {
     width: 200px;
     height: 200px;
+    cursor: zoom-in;
 }
 
 .ImageDivClicked {
@@ -31,6 +46,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    cursor: zoom-out;
 }
 
 .imageClicked {
@@ -38,4 +54,20 @@
     max-height: 800px;
     z-index: 3;
 
+}
+
+.bkgImage {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    border-radius: 10px;
+    background-color: white;
+    object-fit: cover;
+
+}
+
+.Information {
+    font-size: 18px;
 }

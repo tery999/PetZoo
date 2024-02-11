@@ -4,6 +4,7 @@ import styles from "./AddPet.module.css"
 import { petErrors } from "../../services/petErrors";
 
 export default function AddPet() {
+    debugger;
     const [error, setError] = useState({});
     const [pet, setPet] = useState({
         name: "",
@@ -27,7 +28,7 @@ export default function AddPet() {
 
         const results = petErrors(pet)
         setError(results);
-        if (!error) {
+        if (Object.keys(error).length === 0) {
         PetService.AddPet(pet);
         }
     }

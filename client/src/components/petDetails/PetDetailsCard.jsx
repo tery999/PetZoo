@@ -3,13 +3,15 @@ import * as styles from "./PetDetails.module.css"
 import * as PetService from "../../services/petsService"
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
+import bkgImage from "./bkgImage.jpg";
+
 
 
 export default function PetDetailsCard(pet) {
     const [imageOverlay, setImageOverlay] = useState(false);
     const { userId } = useContext(UserContext)
-    console.log("USER ID IS " , userId);
-    console.log("OWNER ID IS " , pet.ownerId);
+    console.log("USER ID IS ", userId);
+    console.log("OWNER ID IS ", pet.ownerId);
 
     const clickImageHandler = () => {
         if (imageOverlay === true) {
@@ -24,13 +26,14 @@ export default function PetDetailsCard(pet) {
     }
     return (
         <div className={styles.PetContainer}>
-            <h1>NAME: {pet.name}</h1>
+            <h1>{pet.name}</h1>
             <div className={styles.PetContainerColumn}>
+            <img className={styles.bkgImage} src={bkgImage} alt="" />
                 {!imageOverlay && <div className={styles.ImageDivNotClicked}>
                     <img src={pet.image} alt="image" className={styles.imageNotClicked} onClick={clickImageHandler} />
                 </div>}
 
-                {imageOverlay && <div className={styles.ImageDivClicked}>
+                {imageOverlay && <div className={styles.ImageDivClicked} onClick={clickImageHandler}>
                     <img src={pet.image} alt="image" className={styles.imageClicked} onClick={clickImageHandler} />
                 </div>}
                 <div className={styles.Information}>
@@ -46,10 +49,15 @@ export default function PetDetailsCard(pet) {
                     <p>
                         gender: {pet.gender}
                     </p>
-                    <p>
-                        description: {pet.description}
-                    </p>
                 </div>
+            </div>
+            <div>
+                <h3>
+                    About {pet.name}
+                </h3>
+                <p>
+                    {pet.description}
+                </p>
             </div>
             {userId === pet.ownerId &&
                 <div>
