@@ -4,7 +4,9 @@ import * as PetService from "../../services/petsService"
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
 import bkgImage from "./bkgImage.jpg";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen } from "@fortawesome/free-solid-svg-icons"
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
 
 
 export default function PetDetailsCard(pet) {
@@ -66,16 +68,17 @@ export default function PetDetailsCard(pet) {
                         </section>
                     </div>
                 }
+                {userId === pet.ownerId &&
+                    <div className={styles.ownerButtons}>
+                        <button onClick={deletePetHandler} className={styles.deleteBtn}>
+                            Delete <FontAwesomeIcon icon={faTrash} size="sm" style={{ color: "#ffffff" }} className={styles.deleteIcon} />
+                        </button>
+                        <Link to={`/Pet/${pet._id}/Edit`} >
+                            <button className={styles.editBtn}>Edit  <FontAwesomeIcon icon={faPen} size="sm" style={{ color: "#ffffff" }} className={styles.editIcon} /> </button>
+                        </Link>
+                    </div>
+                }
             </div>
-            {userId === pet.ownerId &&
-                <div className={styles.ownerButtons}>
-                    <button onClick={deletePetHandler} className={styles.deleteBtn}>
-                        DELETE
-                    </button>
-                    <Link to={`/Pet/${pet._id}/Edit`} >
-                        <button className={styles.editBtn}>Edit</button>
-                    </Link>
-                </div>}
         </div>
     )
 }

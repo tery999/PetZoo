@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState , useContext} from "react"
 import * as PetService from "../../services/petsService"
 import { useParams } from "react-router-dom";
 import * as styles from "./EditPet.module.css";
 import { petErrors } from "../../services/petErrors"
+import {useNavigate} from  "react-router-dom"
+import { UserContext } from "../../contexts/userContext";
 
 export default function EditPet() {
     // debugger;
+    const navigate = useNavigate();
+    const {userId} = useContext(UserContext);
     const [error, setError] = useState({});
     const { id } = useParams();
     const [pet, setPet] = useState();
@@ -13,6 +17,13 @@ export default function EditPet() {
         PetService.getOnePet(id)
             .then(result => setPet(result));
     }, [id])
+
+    useEffect( ()=> {
+        // debugger;
+        if ( pet && pet.ownerId !== userId ) {
+            navigate("/");
+        }
+    },[pet])
 
     const changeHandler = (e) => {
         const name = e.target.name;

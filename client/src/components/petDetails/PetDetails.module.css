@@ -108,14 +108,14 @@ border: 3px solid #ff6550;
 
 .ownerButtons {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    margin-left: 50px;
+    padding-top: 20px;
+    gap: 120px;
 }
 
 .deleteBtn {
+    position: relative;
     background-color: #da3f2b;
     width: 100px;
     height: 35px;
@@ -123,9 +123,12 @@ border: 3px solid #ff6550;
     border: none;
     color: white;
     cursor: pointer;
+    transition: 1s;
+    font-size: 16px;
 }
 
 .editBtn {
+    position: relative;
     background-color: #30d261;
     width: 100px;
     height: 35px;
@@ -133,4 +136,29 @@ border: 3px solid #ff6550;
     border: none;
     color: white;
     cursor: pointer;
+    transition: 1s;
+    font-size: 16px;
+}
+
+.deleteBtn:hover {
+    background-color: #bf2d1a ;
+    width: 150px;
+}
+
+.editBtn:hover {
+    background-color: #25ba52 ;
+    width: 150px;
+}
+
+.editIcon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+
+.deleteIcon {
+    position: absolute;
+    right: 7px;
+    top: 10px;
 }

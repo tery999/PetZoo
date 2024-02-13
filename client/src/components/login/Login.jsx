@@ -5,7 +5,9 @@ import { UserContext } from "../../contexts/userContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCat, faShieldDog } from "@fortawesome/free-solid-svg-icons"
 import { faPaw } from "@fortawesome/free-solid-svg-icons"
+import {useNavigate } from "react-router-dom"
 export default function Login() {
+    const navigate = useNavigate();
     const {changeAuthHandler} = useContext(UserContext);
     const [error, setError] = useState(false);
     const [login, setLogin] = useState({
@@ -20,7 +22,7 @@ export default function Login() {
     }
 
     const loginSubmitHandler = async(e) => {
-        debugger;
+        // debugger;
             e.preventDefault();
             if (login.username.trim() === "" || login.password.trim() === "") {
                 setError(true);
@@ -31,6 +33,7 @@ export default function Login() {
            localStorage.setItem("UserInfo", JSON.stringify(loginInformation));
            changeAuthHandler(loginInformation);
            console.log("THIS IS OBJECT IN LOGINSUBMITHANDLER",loginInformation);
+           navigate("/");
             } catch (err) {
                 setError(true);
             }

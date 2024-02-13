@@ -1,11 +1,10 @@
 import { useContext, useEffect } from "react"
 import { UserContext } from "../../contexts/userContext";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 
 export default function Logout () {
     const {changeAuthHandler} = useContext(UserContext);
-    const navigate = useNavigate();
     localStorage.removeItem("UserInfo");
     changeAuthHandler(null);
 
@@ -16,6 +15,6 @@ export default function Logout () {
     },[])
 
     return (
-        null
+        <Navigate to="/" />
     )
 }

@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCat, faShieldDog } from "@fortawesome/free-solid-svg-icons"
 import { faShieldCat } from "@fortawesome/free-solid-svg-icons"
 import { faPaw } from "@fortawesome/free-solid-svg-icons"
+import {useNavigate } from "react-router-dom"
 
 export default function Register() {
+    const navigate = useNavigate();
     const [register, setRegister] = useState({
         username: "",
         password: "",
@@ -43,6 +45,7 @@ export default function Register() {
         setEmptyError(false);
         try {
            await userService.register(register);
+           navigate("/");
         } catch (err) {
             setServerError(err.message)
         }
