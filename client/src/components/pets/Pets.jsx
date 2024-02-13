@@ -9,25 +9,33 @@ export default function Pets() {
     debugger;
 
     useEffect(() => {
-       PetService.getAllPets()
-       .then(results => setPets(results));
-
-       setpetsLoaded(true);
+        PetService.getAllPets()
+            .then(results => setPets(results));
     }, []);
 
-    return (
-        <div className={styles.PetsContainer}>
-            {pets &&
-                <>
-                    {pets.map((pet) => {
-                       return <PetCard key={pet._id} pet={pet} />
-                    })}
-                </>
-            }
+    useEffect( ()=> {
+        if(pets) {
+            setpetsLoaded(true);
+        }
+    }, [pets])
 
-            {!pets &&
-            <p>There are no pets</p>
+    return (
+        <>
+            {petsLoaded &&
+                <div className={styles.PetsContainer}>
+                    {pets &&
+                        <>
+                            {pets.map((pet) => {
+                                return <PetCard key={pet._id} pet={pet} />
+                            })}
+                        </>
+                    }
+
+                    {!pets &&
+                        <p>There are no pets</p>
+                    }
+                </div>
             }
-        </div>
+        </>
     )
 }

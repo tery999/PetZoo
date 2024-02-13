@@ -27,8 +27,14 @@
     justify-content: center;
     /* border: 2px solid rgba(128, 128, 128, 0.304); */
     box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    transition: 1s;
 
 }
+
+.ImageDivNotClicked:hover { 
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+}
+
 
 .imageNotClicked {
     width: 200px;
@@ -73,4 +79,58 @@
 .Information {
     font-size: 18px;
     margin-left: 35px;
+}
+
+.descriptionSection{
+background-color: rgb(255, 253, 245);
+min-width: 400px;
+min-height: 100px;
+max-width: 700px;
+font-size: 18px;
+text-align:left;
+padding: 10px;
+border-radius: 10px 10px 10px 10px;
+border: 3px solid #ff6550;
+}
+
+.descriptionSection > p {
+    margin: 0px;
+}
+
+.descriptionBox {
+    text-align: center;
+}
+
+.petPage {
+    display: flex;
+    justify-content: center;
+}
+
+.ownerButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-left: 50px;
+}
+
+.deleteBtn {
+    background-color: #da3f2b;
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.editBtn {
+    background-color: #30d261;
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
 }

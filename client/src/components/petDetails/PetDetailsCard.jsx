@@ -22,53 +22,60 @@ export default function PetDetailsCard(pet) {
     }
 
     const deletePetHandler = () => {
-        PetService.deletePet(pet._id);
+        if (userId === pet.ownerId) {
+            PetService.deletePet(pet._id);
+        }
     }
     return (
-        <div className={styles.PetContainer}>
-            <h1>{pet.name}</h1>
-            <div className={styles.PetContainerColumn}>
-            <img className={styles.bkgImage} src={bkgImage} alt="" />
-                {!imageOverlay && <div className={styles.ImageDivNotClicked}>
-                    <img src={pet.image} alt="image" className={styles.imageNotClicked} onClick={clickImageHandler} />
-                </div>}
+        <div className={styles.petPage}>
+            <div className={styles.PetContainer}>
+                <h1>{pet.name}</h1>
+                <div className={styles.PetContainerColumn}>
+                    <img className={styles.bkgImage} src={bkgImage} alt="" />
+                    {!imageOverlay && <div className={styles.ImageDivNotClicked}>
+                        <img src={pet.image} alt="image" className={styles.imageNotClicked} onClick={clickImageHandler} />
+                    </div>}
 
-                {imageOverlay && <div className={styles.ImageDivClicked} onClick={clickImageHandler}>
-                    <img src={pet.image} alt="image" className={styles.imageClicked} onClick={clickImageHandler} />
-                </div>}
-                <div className={styles.Information}>
-                    <p>
-                        species: {pet.species}
-                    </p>
-                    <p>
-                        color: {pet.color}
-                    </p>
-                    <p>
-                        age: {pet.age}
-                    </p>
-                    <p>
-                        gender: {pet.gender}
-                    </p>
+                    {imageOverlay && <div className={styles.ImageDivClicked} onClick={clickImageHandler}>
+                        <img src={pet.image} alt="image" className={styles.imageClicked} onClick={clickImageHandler} />
+                    </div>}
+                    <div className={styles.Information}>
+                        <p>
+                            species: {pet.species}
+                        </p>
+                        <p>
+                            color: {pet.color}
+                        </p>
+                        <p>
+                            age: {pet.age}
+                        </p>
+                        <p>
+                            gender: {pet.gender}
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <h3>
-                    About {pet.name}
-                </h3>
-                <p>
-                    {pet.description}
-                </p>
+                {pet.description &&
+                    <div className={styles.descriptionBox} >
+                        <h3>
+                            About {pet.name}
+                        </h3>
+                        <section className={styles.descriptionSection}>
+                            <p>
+                                {pet.description}
+                            </p>
+                        </section>
+                    </div>
+                }
             </div>
             {userId === pet.ownerId &&
-                <div>
-                    <button onClick={deletePetHandler}>
+                <div className={styles.ownerButtons}>
+                    <button onClick={deletePetHandler} className={styles.deleteBtn}>
                         DELETE
                     </button>
-                    <Link to={`/Pet/${pet._id}/Edit`}>
-                        <button>Edit</button>
+                    <Link to={`/Pet/${pet._id}/Edit`} >
+                        <button className={styles.editBtn}>Edit</button>
                     </Link>
                 </div>}
-
         </div>
     )
 }
