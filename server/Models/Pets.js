@@ -11,7 +11,7 @@ const petsSchema = new mongoose.Schema({
   gender: String,
   description: String,
   ownerId: { type: mongoose.Schema.Types.ObjectId, ref: User }
-});
+},  { timestamps: true });
 
 const Pet = mongoose.model("Pet", petsSchema);
 

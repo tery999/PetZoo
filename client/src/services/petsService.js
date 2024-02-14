@@ -24,6 +24,14 @@ export async function getAllPets () {
     return data;
 }
 
+export async function getNewestPets() {
+    const URL = "http://localhost:3030/Pets/ByDate";
+    const fetchedPets = await fetch(URL);
+    const data = await fetchedPets.json();
+    console.log(data);
+    return data;
+}
+
 export async function deletePet (id) {
     const URL = `http://localhost:3030/Pets/${id}`;
     const deletedPet = await fetch(URL, {

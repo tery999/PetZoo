@@ -24,6 +24,12 @@ router.get("/" , async (req,res) => {
    res.json(allPets);
 })
 
+router.get("/ByDate" , async (req,res) => {
+   const allPets = await Pet.find().sort({createdAt: -1})
+   console.log(allPets);
+   res.json(allPets);
+})
+
 router.get("/:id" , async (req,res) => {
    try {
    const petId = req.params.id

@@ -1,0 +1,59 @@
+.homePageDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    gap: 20px
+}
+
+.LinkButton {
+    /* visibility: hidden;
+    opacity: 0; */
+    transition: 1s;
+    height: 40px;
+    width: 80px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(179, 33, 45);
+}
+
+.petContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 2px solid #3772FF; */
+    border-radius: 15px;
+    height: 150px;
+    width: 600px;
+    background: linear-gradient(180deg, rgba(220,231,255,1) 0%, rgba(192,206,242,1) 100%);
+    transition: 1s;
+
+}
+
+.petContainer a {
+    text-decoration: none;
+}
+
+.petContainer:hover {
+
+    width: 700px;
+}
+
+.petContainer:hover .LinkButton{
+display: block;
+visibility: visible;
+opacity: 1;
+}
+
+.petContainer > p {
+   font-size: 20px;
+}
+
+.petImage {
+    width: 140px;
+    height: 140px;
+    border-radius: 10%;
+}
+
