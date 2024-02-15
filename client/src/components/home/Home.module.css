@@ -8,15 +8,22 @@
 }
 
 .LinkButton {
-    /* visibility: hidden;
-    opacity: 0; */
+    visibility: hidden;
+    opacity: 0;
     transition: 1s;
+    transition: background-color 0.4s;
     height: 40px;
     width: 80px;
     border: none;
     border-radius: 20px;
-    color: white;
-    background-color: rgb(179, 33, 45);
+    color: rgb(0, 0, 0);
+    background-color: #f9f0ad;
+    box-shadow: 0px 0px 6px -3px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+
+.LinkButton:hover{
+    background-color: rgb(238, 226, 118);
 }
 
 .petContainer {
@@ -27,7 +34,8 @@
     border-radius: 15px;
     height: 150px;
     width: 600px;
-    background: linear-gradient(180deg, rgba(220,231,255,1) 0%, rgba(192,206,242,1) 100%);
+    /* background: linear-gradient(180deg, rgba(220,231,255,1) 0%, rgba(192,206,242,1) 100%); */
+    background-color: #C0EBD7;
     transition: 1s;
 
 }

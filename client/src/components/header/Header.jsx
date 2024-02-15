@@ -24,8 +24,13 @@ export default function Header() {
                 <Link to={"/Pets"}>
                     Pets
                 </Link>
+                { logged && 
+                    <Link to={"/Pets/Add"}>
+                    Add new pet
+                </Link>
+                }
                 <Link to={"/"}>
-                    Home
+                    About
                 </Link>
                 </div>
             </div>
