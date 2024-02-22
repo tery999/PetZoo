@@ -1,15 +1,16 @@
 import { useContext, useState } from "react";
 import * as styles from "./PetDetails.module.css"
 import * as PetService from "../../services/petsService"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
 import bkgImage from "./bkgImage.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from "@fortawesome/free-solid-svg-icons"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 
-
 export default function PetDetailsCard(pet) {
+    const navigate = useNavigate();
+
     const [imageOverlay, setImageOverlay] = useState(false);
     const { userId } = useContext(UserContext)
     console.log("USER ID IS ", userId);
@@ -22,10 +23,11 @@ export default function PetDetailsCard(pet) {
             setImageOverlay(true);
         }
     }
-
+    debugger;
     const deletePetHandler = () => {
         if (userId === pet.ownerId) {
             PetService.deletePet(pet._id);
+            navigate("/");
         }
     }
     return (

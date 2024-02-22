@@ -5,6 +5,7 @@
     align-content: center;
     align-items: center;
     width: 280px;
+    height: 330px;
     background-color: #E6AA68;
     border-radius: 10%;
     transition: box-shadow 0.6s ;
@@ -22,11 +23,23 @@
 }
 
 .PetCard img {
-    padding-top: 10px;
+    margin-top: 10px;
     width: 200px;
     height: 200px;
     border-radius: 50%;
     cursor: pointer !important;
+}
+
+.PetCard a{
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer !important;
+}
+
+.PetCard img:hover {
+    filter: brightness(90%);
 }
 
 .linkPointer {

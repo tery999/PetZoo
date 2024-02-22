@@ -1,7 +1,7 @@
 
 
 const addPetURL = "http://localhost:3030/Pets/Add"
-let token = await JSON.parse(localStorage.getItem("UserInfo") );
+let token = JSON.parse(localStorage.getItem("UserInfo") );
 
 export async function AddPet (pet) {
     // debugger;
@@ -33,6 +33,7 @@ export async function getNewestPets() {
 }
 
 export async function deletePet (id) {
+    debugger;
     const URL = `http://localhost:3030/Pets/${id}`;
     const deletedPet = await fetch(URL, {
         method: "DELETE",

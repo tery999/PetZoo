@@ -27,7 +27,7 @@
     justify-content: center;
     /* border: 2px solid rgba(128, 128, 128, 0.304); */
     box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
-    transition: 1s;
+    transition: box-shadow 1s;
 
 }
 
