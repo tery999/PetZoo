@@ -45,6 +45,7 @@
 .ImageDivClicked {
     position: fixed;
     display: flex;
+    z-index: 6;
     justify-content: center;
     left: 0px;
     top: 0px;
@@ -59,7 +60,7 @@
 .imageClicked {
     max-width: 800px;
     max-height: 600px;
-    z-index: 3;
+    z-index: 5;
     object-fit: contain;
 
 }
@@ -116,6 +117,7 @@ border: 3px solid #D0F288;
 
 .deleteBtn {
     position: relative;
+    z-index: 2;
     background-color: #da3f2b;
     width: 100px;
     height: 35px;
@@ -129,6 +131,7 @@ border: 3px solid #D0F288;
 
 .editBtn {
     position: relative;
+    z-index: 2;
     background-color: #30d261;
     width: 100px;
     height: 35px;
