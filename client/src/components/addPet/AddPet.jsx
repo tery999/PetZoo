@@ -2,6 +2,7 @@ import { useState } from "react"
 import * as PetService from "../../services/petsService"
 import styles from "./AddPet.module.css"
 import { petErrors } from "../../services/petErrors";
+import addPetBkg from "./addPetBkg.jpg"
 
 export default function AddPet() {
     debugger;
@@ -34,8 +35,9 @@ export default function AddPet() {
     }
     return (
         <div className={styles.AddPetBox}>
-            <p>This is the ADD PET page</p>
+            <p>Add your pet</p>
             <form className={styles.AddPetForm} onSubmit={submitHandler}>
+            <img className={styles.bkgImage} src={addPetBkg} alt="" />
                 <div className={styles.FirstRow}>
                     <div className={styles.ColumnBoxes}>
                         <input type="text"

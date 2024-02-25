@@ -79,3 +79,12 @@ background: radial-gradient(circle, rgba(145,230,187,1) 13%, rgba(138,218,178,1)
  .userIcon {
     padding-top: 2px;
  }
+
+ .userLogInOut a {
+    transition: 0.3s;
+ }
+
+ .userLogInOut a:hover {
+    transition: 0.3s;
+    text-shadow: 2px 2px 2px rgba(12, 81, 58, 0.6);
+ }

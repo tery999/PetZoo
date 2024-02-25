@@ -6,7 +6,8 @@
     align-items: center;
     width: 280px;
     height: 330px;
-    background-color: #E6AA68;
+    /* background-color: #E6AA68; */
+    background-color: #f6c38c;
     border-radius: 10%;
     transition: box-shadow 0.6s ;
     box-shadow: inset 0px 0px 24px -10px rgba(153, 78, 38, 0.75), 0px 0px 18px -1px rgba(0,0,0,0);
