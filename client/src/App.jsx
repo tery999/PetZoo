@@ -10,6 +10,7 @@ import Register from "./components/register/Register";
 import { createContext, useContext, useEffect, useState } from "react";
 import { UserContext } from "./contexts/userContext";
 import Logout from "./components/logout/Logout";
+import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
 
 function App() {
 
@@ -28,24 +29,27 @@ function App() {
     changeAuthHandler
   }
 
-  useEffect ( ()=> {
+  // for testing
+  useEffect(() => {
     console.log("THIS IS AUTH OBJECT IN USE EFFECT", auth);
     console.log("THIS IS VALUE CONTEXT IN USE EFFECT", value);
-  },[auth])
+  }, [auth])
 
   return (
     <UserContext.Provider value={value}>
-    <Header/>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/Pets" element={<Pets />} />
-      <Route path="/Pets/Add" element={<AddPet />} />
-      <Route path="/Pet/:id" element={<PetDetails />} />
-      <Route path="/Pet/:id/Edit" element={<EditPet />} />
-      <Route path="/Login" element={<Login />} />
-      <Route path="/Register" element={<Register />} />
-      <Route path="/Logout" element={<Logout />} />
-    </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Pets" element={<Pets />} />
+        <Route element={<PrivateRoutes logged={value.logged}/>}>
+          <Route path="/Pets/Add" element={<AddPet />} />
+          <Route path="/Pet/:id/Edit" element={<EditPet />} />
+        </Route>
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Pet/:id" element={<PetDetails />} />
+        <Route path="/Logout" element={<Logout />} />
+      </Routes>
     </UserContext.Provider>
   )
 }
