@@ -40,8 +40,8 @@
     padding: 15px 5px 10px 5px;
     text-align: center;
     resize: none;
-    outline: 1px solid #63bb8f;
-    border: 2px solid #63bb8f;
+    outline: 1px solid #53a37b;
+    border: 2px solid #53a37b;
     background-color: rgba(255, 255, 255, 0.95);
 }
 .AddPetForm input , select {
@@ -100,3 +100,16 @@
     border-radius: 15px;
 }
 
+.AddPetForm input[type=submit] {
+ background-color: #64ffb2;
+ border: 2px solid rgb(255, 255, 255);
+ width: 100px;
+ box-shadow: inset 0px 0px 4px -1px rgba(0,0,0,0.75);
+ transition: 0.3s;
+}
+
+.AddPetForm input[type=submit]:hover {
+    background-color: #4affa4;
+    width: 110px;
+    cursor: pointer;
+   }

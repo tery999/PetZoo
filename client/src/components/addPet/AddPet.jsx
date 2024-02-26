@@ -3,9 +3,10 @@ import * as PetService from "../../services/petsService"
 import styles from "./AddPet.module.css"
 import { petErrors } from "../../services/petErrors";
 import addPetBkg from "./addPetBkg.jpg"
+import {useNavigate} from "react-router-dom"
 
 export default function AddPet() {
-    debugger;
+    const navigate = useNavigate();
     const [error, setError] = useState({});
     const [pet, setPet] = useState({
         name: "",
@@ -31,6 +32,7 @@ export default function AddPet() {
         setError(results);
         if (Object.keys(error).length === 0) {
         PetService.AddPet(pet);
+        navigate("/");
         }
     }
     return (
@@ -112,7 +114,7 @@ export default function AddPet() {
                     placeholder="Short description about your pet"></textarea>
 
                 <div>
-                    <input type="submit" />
+                    <input type="submit" value="Add"/>
                 </div>
             </form>
         </div>
