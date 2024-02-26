@@ -4,7 +4,7 @@ const addPetURL = "http://localhost:3030/Pets/Add"
 let token = JSON.parse(localStorage.getItem("UserInfo") );
 
 export async function AddPet (pet) {
-    debugger;
+    // debugger;
     // console.log("TOKEN OBJ IN ADD PET" , token);
     await fetch( addPetURL, {
         method: "POST",

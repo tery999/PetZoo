@@ -11,10 +11,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { UserContext } from "./contexts/userContext";
 import Logout from "./components/logout/Logout";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
+import useLocalStorage from "./services/useLocalStorage";
 
 function App() {
 
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useLocalStorage();
   console.log("THIS IS AUTH OBJECT", auth);
 
   const changeAuthHandler = (info) => {
