@@ -2,7 +2,8 @@ import { Navigate, Outlet} from "react-router-dom"
 
 export default function PrivateRoutes ({logged}) {
     debugger;
-    if (!logged) {
+    const localStorageToken = localStorage.getItem("UserInfo");
+    if (!logged && localStorageToken === null) {
         return <Navigate to="/Login" />;
     }
 

@@ -69,4 +69,21 @@ router.put("/:id" , async (req,res) => {
    }
 })
 
+router.put("/:id/Likes" , async (req,res) => {
+   try {
+   const petId = req.params.id;
+   const userId = req.body;
+   console.log("THIS IS REQ BODY", userId);
+      const userLiked = await Pet.findById(petId);
+      if (userLiked.likes.includes(userId)) {
+         console.log("USER IS INCLUDED IN THE ARRAY")
+      } else {
+         console.log("USER DOESNT EXIST IN ARRAY")
+      }
+   } catch (err) {
+      console.log("THIS IS ERROR", err);
+      res.status(400).json(err);
+   }
+})
+
 module.exports = router;

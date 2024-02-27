@@ -1,7 +1,10 @@
 
 
 const addPetURL = "http://localhost:3030/Pets/Add"
-let token = JSON.parse(localStorage.getItem("UserInfo") );
+let tokenFunc = () => {
+ return JSON.parse(localStorage.getItem("UserInfo") );
+}
+let token = tokenFunc();
 
 export async function AddPet (pet) {
     // debugger;
@@ -76,3 +79,16 @@ export async function editPet (pet) {
     })
 }
 
+export async function changeLikes (pet) {
+    debugger;
+    const changeLikePetUrl = `http://localhost:3030/Pets/${pet._id}/Likes`;
+    const likedPet = await fetch( changeLikePetUrl, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : token.token,
+          },
+        body: JSON.stringify(pet)
+    })
+
+}

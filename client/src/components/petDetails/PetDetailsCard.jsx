@@ -7,6 +7,7 @@ import bkgImage from "./bkgImage.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from "@fortawesome/free-solid-svg-icons"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
+import PetDetailsLikes from "./PetDetailsLikes";
 
 export default function PetDetailsCard(pet) {
     const navigate = useNavigate();
@@ -58,6 +59,7 @@ export default function PetDetailsCard(pet) {
                         </p>
                     </div>
                 </div>
+                <PetDetailsLikes {...pet}/>
                 {pet.description &&
                     <div className={styles.descriptionBox} >
                         <h3>

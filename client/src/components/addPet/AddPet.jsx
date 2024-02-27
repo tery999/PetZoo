@@ -30,7 +30,7 @@ export default function AddPet() {
 
         const results = petErrors(pet)
         setError(results);
-        if (Object.keys(error).length === 0) {
+        if (Object.keys(results).length === 0) {
         PetService.AddPet(pet);
         navigate("/");
         }

@@ -10,8 +10,10 @@ const petsSchema = new mongoose.Schema({
   age: Number,
   gender: String,
   description: String,
-  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: User }
-},  { timestamps: true });
+  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: User },
+  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: User }],
+}, 
+{ timestamps: true });
 
 const Pet = mongoose.model("Pet", petsSchema);
 
