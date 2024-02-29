@@ -73,12 +73,17 @@ router.put("/:id/Likes" , async (req,res) => {
    try {
    const petId = req.params.id;
    const userId = req.body;
-   console.log("THIS IS REQ BODY", userId);
+   // console.log("THIS IS REQ BODY", userId);
       const userLiked = await Pet.findById(petId);
-      if (userLiked.likes.includes(userId)) {
-         console.log("USER IS INCLUDED IN THE ARRAY")
+      // console.log("USERLIKED ARRAY", userLiked.likes , "SPACE" , userId._id);
+      if (userLiked.likes.includes(userId._id)) {
+         await Pet.findByIdAndUpdate(petId, {
+            $pull: {"likes": userId._id}
+         })
       } else {
-         console.log("USER DOESNT EXIST IN ARRAY")
+         await Pet.findByIdAndUpdate(petId , {
+            "$push": {"likes": userId._id}
+         })
       }
    } catch (err) {
       console.log("THIS IS ERROR", err);
