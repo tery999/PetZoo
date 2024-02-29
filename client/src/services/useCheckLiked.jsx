@@ -11,7 +11,6 @@ export default function useCheckLiked(likes) {
             setLiked(false);
         }
 
-        // console.log("CHECK LIKED USE EFFECT RUNNING");
     },[]);
 
     return [liked, setLiked];

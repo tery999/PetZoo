@@ -168,3 +168,8 @@ border: 3px solid #D0F288;
     right: 7px;
     top: 10px;
 }
+
+.likePanel {
+    display: flex;
+    background-color: #25ba52;
+}
