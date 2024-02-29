@@ -77,14 +77,20 @@ router.put("/:id/Likes", async (req, res) => {
       const userLiked = await Pet.findById(petId);
       if (userLiked.likes.includes(userId)) {
          console.log("USER ALREADY EXISTS");
-         await Pet.findByIdAndUpdate(petId, {
-            $pull: { "likes": userId }
+        const returnedPet = await Pet.findByIdAndUpdate(petId, {
+            $pull: { "likes": userId } ,
+            new: true
          })
+         console.log("RETURNED PET " , returnedPet);
+         console.log("RETURNED PET LIKES" , returnedPet.likes);
+         res.json( returnedPet.likes);
       } else {
          console.log("USER DOESNT EXIST");
-         await Pet.findByIdAndUpdate(petId, {
-            "$push": { "likes": userId }
+         const returnedPet = await Pet.findByIdAndUpdate(petId, {
+            "$push": { "likes": userId } ,
+            new: true
          })
+         res.json( returnedPet.likes);
       }
    } catch (err) {
       console.log("THIS IS ERROR", err);

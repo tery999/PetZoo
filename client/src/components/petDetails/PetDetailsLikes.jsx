@@ -1,29 +1,46 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import * as PetService from "../../services/petsService"
+import { UserContext } from "../../contexts/userContext";
+import useCheckLiked from "../../services/useCheckLiked";
 
-export default function PetDetailsLikes (pet) {
-    debugger;
+export default function PetDetailsLikes(pet) {
     const [likes, setLikes] = useState(0);
+    const [isLiked, setLiked] = useCheckLiked(pet.likes)
 
-    useEffect ( ()=> {
-        if (pet?.likes.length !== null || pet?.likes.length === 0) {
+    //setLikeAmount
+    useEffect(() => {
+        if (pet?.likes.length === null || pet?.likes.length === 0) {
             setLikes(0)
         } else {
-            setLikes(currentLikes);
+            setLikes(pet.likes.length);
         }
+        console.log("USE EFFECT CHECKED")
+
     },[]);
 
-    let currentLikes = likes;
-
     const likeFunction = async () => {
-        await PetService.changeLikes(pet);
+        const response = await PetService.changeLikes(pet);
+        if(isLiked === false) {
+            setLikes( likes + 1);
+        } else {
+            setLikes( likes - 1);
+        }
+        setLiked( prev=> !prev);
     }
 
+    let currentLikes = likes;
     return (
-    <div>
-        <p>THIS IS THE LIKE COMPONENT</p>
-        <p>LIKES: {currentLikes}</p>
-        <button onClick={likeFunction}>Like button</button>
-    </div>
+        <div>
+            <p>THIS IS THE LIKE COMPONENT</p>
+            <p>LIKES: {currentLikes}</p>
+            {isLiked &&
+                <p>USER HAS ALREADY LIKED</p>
+            }
+
+            {!isLiked &&
+                <p>USER HAS NOT LIKED</p>
+            }
+            <button onClick={likeFunction}>Like button</button>
+        </div>
     )
 };

@@ -95,4 +95,6 @@ export async function changeLikes (pet) {
         body: JSON.stringify({...pet, userId: token.userId})
     })
 
+    return likedPet.json();
+
 };
