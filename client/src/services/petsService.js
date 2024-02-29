@@ -4,9 +4,10 @@ const addPetURL = "http://localhost:3030/Pets/Add"
 let tokenFunc = () => {
  return JSON.parse(localStorage.getItem("UserInfo") );
 }
-let token = tokenFunc();
+
 
 export async function AddPet (pet) {
+    let token = tokenFunc();
     // debugger;
     // console.log("TOKEN OBJ IN ADD PET" , token);
     await fetch( addPetURL, {
@@ -17,7 +18,7 @@ export async function AddPet (pet) {
           },
         body: JSON.stringify({...pet, ownerId: token.userId})
     })
-}
+};
 
 export async function getAllPets () {
     const URL = "http://localhost:3030/Pets";
@@ -25,7 +26,7 @@ export async function getAllPets () {
     const data = await fetchedPets.json();
     console.log(data);
     return data;
-}
+};
 
 export async function getNewestPets() {
     const URL = "http://localhost:3030/Pets/ByDate";
@@ -33,9 +34,10 @@ export async function getNewestPets() {
     const data = await fetchedPets.json();
     console.log(data);
     return data;
-}
+};
 
 export async function deletePet (id) {
+    let token = tokenFunc();
     debugger;
     const URL = `http://localhost:3030/Pets/${id}`;
     const deletedPet = await fetch(URL, {
@@ -48,7 +50,7 @@ export async function deletePet (id) {
     const data = await deletedPet.json();
     console.log(data);
     return data;
-}
+};
 
 export async function getOnePet (id) {
     debugger;
@@ -65,9 +67,10 @@ export async function getOnePet (id) {
         console.log("ERROR IN PET SERVICE GET ONE PET", err);
         return null;
     }
-}
+};
 
 export async function editPet (pet) {
+    let token = tokenFunc();
     const editPetURL = `http://localhost:3030/Pets/${pet._id}`;
    const updatedPet = await fetch( editPetURL, {
         method: "PUT",
@@ -77,9 +80,10 @@ export async function editPet (pet) {
           },
         body: JSON.stringify(pet)
     })
-}
+};
 
 export async function changeLikes (pet) {
+    let token = tokenFunc();
     debugger;
     const changeLikePetUrl = `http://localhost:3030/Pets/${pet._id}/Likes`;
     const likedPet = await fetch( changeLikePetUrl, {
@@ -88,7 +92,7 @@ export async function changeLikes (pet) {
             "Content-Type": "application/json",
             "Authorization" : token.token,
           },
-        body: JSON.stringify(pet)
+        body: JSON.stringify({...pet, userId: token.userId})
     })
 
-}
+};
