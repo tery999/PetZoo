@@ -3,6 +3,8 @@ import * as PetService from "../../services/petsService"
 import { UserContext } from "../../contexts/userContext";
 import useCheckLiked from "../../services/useCheckLiked";
 import * as styles from "./PetDetails.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function PetDetailsLikes(pet) {
     const { userId } = useContext(UserContext);
@@ -38,15 +40,17 @@ export default function PetDetailsLikes(pet) {
             {userId &&
                 <>
                     {isLiked &&
-                        <p>USER HAS ALREADY LIKED</p>
+                        <FontAwesomeIcon icon={faHeart} size="xl" style={{color: "#fb665b"}} onClick={likeFunction}/>
                     }
 
                     {!isLiked &&
-                        <p>USER HAS NOT LIKED</p>
+                        <FontAwesomeIcon icon={faHeart} size="xl" style={{ color: "#63E6BE" }} onClick={likeFunction} />
                     }
-
-                    <button onClick={likeFunction}>Like button</button>
                 </>
+            }
+
+            {!userId &&
+                <FontAwesomeIcon icon={faHeart}  size="xl" style={{ color: "#63E6BE" }}  />
             }
         </div>
     )

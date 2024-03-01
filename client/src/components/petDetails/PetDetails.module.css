@@ -171,5 +171,7 @@ border: 3px solid #D0F288;
 
 .likePanel {
     display: flex;
-    background-color: #25ba52;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
