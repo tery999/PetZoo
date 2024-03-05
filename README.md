@@ -35,9 +35,13 @@ WIll receive and error if fields are blank, if the password isn't matching, or i
 Technologies used:
 ----
 HTML&CSS
+
 React
+
 JS
+
 Node/Express
+
 MongoDB/Mongoose
 
 
