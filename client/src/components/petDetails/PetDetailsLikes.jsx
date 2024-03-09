@@ -40,11 +40,13 @@ export default function PetDetailsLikes(pet) {
             {userId &&
                 <>
                     {isLiked &&
-                        <FontAwesomeIcon icon={faHeart} size="xl" style={{color: "#fb665b"}} onClick={likeFunction}/>
+                        <FontAwesomeIcon icon={faHeart} size="xl" style={{color: "#fb665b"}} onClick={likeFunction}
+                       className={styles.likedIcon} />
                     }
 
                     {!isLiked &&
-                        <FontAwesomeIcon icon={faHeart} size="xl" style={{ color: "#63E6BE" }} onClick={likeFunction} />
+                        <FontAwesomeIcon icon={faHeart} size="xl" style={{ color: "#63E6BE" }} onClick={likeFunction}
+                        className={styles.notlikedIcon} />
                     }
                 </>
             }
