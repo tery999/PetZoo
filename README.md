@@ -2,6 +2,9 @@
 
 Petzoo is an application, in which users can share their pets and view other people's pets.
 
+![2024-06-09](https://github.com/tery999/PetZoo/assets/51335465/66ae30a7-f274-45e3-94b7-32c5131e4504)
+
+
 FUNCTIONALITY:
 -----
 HOME PAGE:
