@@ -15,9 +15,10 @@ export default function Register() {
         repeatPassword: ""
     });
 
-    const [PassError, setPassError] = useState(false);
+    const [repeatError, setRepeatError] = useState(false);
     const [emptyError, setEmptyError] = useState(false);
     const [serverError, setServerError] = useState();
+    const [lengthError, setLengthError] = useState(false);
 
 
     const changeHandler = (e) => {
@@ -33,19 +34,25 @@ export default function Register() {
         e.preventDefault();
         setServerError(null);
         if (register.password !== register.repeatPassword) {
-            setPassError(true);
+            setRepeatError(true);
             return;
         }
-        setPassError(false);
+        setRepeatError(false);
 
         if (register.password.trim() === "" || register.username.trim() === "") {
             setEmptyError(true);
             return;
         }
         setEmptyError(false);
+
+        if(register.password.trim().length < 6) {
+            setLengthError(true);
+            return;
+        }
+        setLengthError(false);
         try {
            await userService.register(register);
-           navigate("/");
+           navigate("/login");
         } catch (err) {
             setServerError(err.message)
         }
@@ -73,6 +80,10 @@ export default function Register() {
                         <FontAwesomeIcon icon={faShieldCat } size="lg" className={styles.registerIcon}/>
                 </label>
 
+                {lengthError &&
+                    <p className={styles.errorMsg}>Minimum length must be 6</p>
+                }
+
                 <label className={styles.labelColumn} htmlFor="repeatPassword">Repeat Password
                     <input  type="password" name="repeatPassword" id="repeatPassword"
                         onChange={changeHandler}
@@ -85,7 +96,7 @@ export default function Register() {
                     <FontAwesomeIcon icon={faPaw } size="lg" className={styles.buttonIcon} />
                 </div>
 
-                {PassError === true &&
+                {repeatError === true &&
                     <p className={styles.errorMsg}>Password missmatch!</p>
                 }
 

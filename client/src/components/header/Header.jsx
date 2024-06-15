@@ -29,7 +29,7 @@ export default function Header() {
                     Add new pet
                 </Link>
                 }
-                <Link to={"/"}>
+                <Link to={"/About"}>
                     About
                 </Link>
                 </div>
