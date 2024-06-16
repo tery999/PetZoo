@@ -1,3 +1,7 @@
+let tokenFunc = () => {
+    return JSON.parse(localStorage.getItem("UserInfo") );
+   }
+
 export async function register(user) {
     // debugger;
     const URL = `http://localhost:3030/Users/Register`
@@ -22,7 +26,7 @@ export async function register(user) {
 }
 
 export async function login(user) {
-    // debugger
+    debugger
     const URL = `http://localhost:3030/Users/Login`
     try {
         const response = await fetch(URL, {
@@ -42,4 +46,14 @@ export async function login(user) {
         console.log(err);
         throw Error("Invalid Login 2");
     }
+}
+
+export async function findUserInfo() {
+    debugger;
+    const tokenData = tokenFunc();
+    const userId = tokenData.userId;
+     const URL = `http://localhost:3030/Users/profileInfo/${userId}`;
+     const response = await fetch(URL);
+     const data = await response.json();
+     return data;
 }

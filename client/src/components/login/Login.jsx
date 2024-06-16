@@ -22,7 +22,7 @@ export default function Login() {
     }
 
     const loginSubmitHandler = async(e) => {
-        // debugger;
+        debugger;
             e.preventDefault();
             if (login.username.trim() === "" || login.password.trim() === "") {
                 setError(true);

@@ -177,11 +177,11 @@ border: 3px solid #D0F288;
 }
 
 .likedIcon:hover {
+    cursor: pointer;
     font-size: 30px;
-    color: aliceblue;
 }
 
 .notlikedIcon:hover {
+    cursor: pointer;
     font-size: 30px;
-    color: aliceblue;
 }

@@ -13,6 +13,7 @@ import Logout from "./components/logout/Logout";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
 import useLocalStorage from "./services/useLocalStorage";
 import About from "./components/about/About";
+import Profile from "./components/profile/Profile";
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
         <Route path="/Pet/:id" element={<PetDetails />} />
         <Route path="/Logout" element={<Logout />} />
         <Route path="/About" element={<About />} />
+        <Route path="/Profile" element={<Profile />} />
       </Routes>
     </UserContext.Provider>
   )

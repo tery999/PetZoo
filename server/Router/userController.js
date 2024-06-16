@@ -42,5 +42,17 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.get('/profileInfo/:id', async(req, res) => {
+    try {
+        const userId = req.params.id;
+        const userInfo = await User.findById(userId).select('username profileImg');
+        console.log("USER INFO IS");
+        console.log(userInfo)
+        res.json({userInfo});
+    } catch (error) {
+        res.status(500).json({error: "Server error"})
+    }
+})
+
 
 module.exports = router;
