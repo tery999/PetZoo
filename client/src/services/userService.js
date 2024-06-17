@@ -62,3 +62,21 @@ export async function findUserInfo() {
      const data = await response.json();
      return data;
 }
+
+export async function updateUserImg(updatedImg) {
+    debugger;
+    const tokenData = tokenFunc();
+    const userId = tokenData.userId;
+    const URL = `http://localhost:3030/Users/profileInfo/${userId}`;
+    const response = await fetch(URL, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : tokenData.token,
+          },
+          body: JSON.stringify({updatedImg:updatedImg})
+     });
+     const data = await response.json();
+     console.log("UPDATED IMG RESPONSE", data);
+     return data;
+}

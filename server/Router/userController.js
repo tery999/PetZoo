@@ -3,6 +3,9 @@ const router = express.Router();
 const User = require("../Models/Users");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const AuthMiddleware = require('../AuthMiddleware');
+
+router.put("*", AuthMiddleware);
 
 router.post('/Register', async (req, res) => {
     try {
@@ -54,6 +57,20 @@ router.get('/profileInfo/:id', async(req, res) => {
         res.status(500).json({error: "Server error"})
     }
 })
+
+router.put('/profileInfo/:id', async(req, res) => {
+    try {
+        const userId = req.params.id;
+        const {updatedImg} = req.body;
+        console.log("UPDATING IMAGE INFO IN SERVER", updatedImg)
+        const userInfo = await User.findByIdAndUpdate( userId, {profileImg: updatedImg} , {  new: true })
+        res.json(userInfo);
+    } catch (error) {
+        res.status(500).json({error: "Server error"})
+    }
+})
+
+
 
 
 module.exports = router;

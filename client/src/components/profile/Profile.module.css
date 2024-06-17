@@ -8,8 +8,8 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
     padding-left: 80px;
     padding-right: 80px;
     width: 600px;
@@ -30,6 +30,39 @@
 
 .changeImg {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
     justify-content: center;
     align-items: center;
+}
+
+.changeImg > p {
+    margin: 4px;
+}
+
+.changeImgShown {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.changeImg > div {
+    cursor: pointer;
+}
+
+.changeImg > div:hover {
+    font-weight: bold;
+}
+
+.formName {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formInput {
+    width: 90%;
 }
