@@ -2,20 +2,29 @@ import { useEffect, useState } from "react"
 import * as styles from "./Profile.module.css"
 import * as userService from "../../services/userService"
 
-export default function Profile () {
+export default function Profile() {
+    debugger;
     const [profileInfo, setProfileInfo] = useState({
         username: "",
         profileImg: ""
     });
 
-    useEffect( ()=> {
-        userService.findUserInfo().then( data => setProfileInfo(data));
-    },[])
+    console.log("PROFILE STATE IS", profileInfo)
+
+    useEffect(() => {
+        userService.findUserInfo().then(data => setProfileInfo(data));
+    }, [])
 
     return (
-        <div className={styles.container}>
-            name: {profileInfo.username}
-            profileImg: {profileInfo.profileImg}
+        <div className={styles.parent}>
+            <div className={styles.container}>
+                <h2>Profile</h2>
+                <p>name: {profileInfo.username}</p>
+                <div className={styles.changeImg}>
+                    <img className={styles.profileImg} src={profileInfo.profileImg} alt="" />
+                    <div> Change profile picture</div>
+                </div>
+            </div>
         </div>
     )
 }

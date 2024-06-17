@@ -1,4 +1,34 @@
+.parent {
+    display: flex;
+    justify-content: center;
+}
+
 .container {
+    margin-top: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding-left: 80px;
+    padding-right: 80px;
+    width: 600px;
+    padding-bottom: 20px;
+    border: 4px solid pink;
+    border-radius: 10px;
+}
+
+.container > h2 {
+    display: flex;
+    align-self: center;
+}
+
+.profileImg {
+    height: 100px;
+    width: 100px;
+}
+
+.changeImg {
     display: flex;
     justify-content: center;
     align-items: center;

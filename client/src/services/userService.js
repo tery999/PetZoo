@@ -53,7 +53,12 @@ export async function findUserInfo() {
     const tokenData = tokenFunc();
     const userId = tokenData.userId;
      const URL = `http://localhost:3030/Users/profileInfo/${userId}`;
-     const response = await fetch(URL);
+     const response = await fetch(URL, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+     });
      const data = await response.json();
      return data;
 }
