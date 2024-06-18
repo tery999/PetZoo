@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from "@fortawesome/free-solid-svg-icons"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import PetDetailsLikes from "./PetDetailsLikes";
+import { PetDetailsComments } from "./PetDetailsComments";
 
 export default function PetDetailsCard(pet) {
     const navigate = useNavigate();
@@ -82,6 +83,7 @@ export default function PetDetailsCard(pet) {
                         </Link>
                     </div>
                 }
+                <PetDetailsComments />
             </div>
         </div>
     )

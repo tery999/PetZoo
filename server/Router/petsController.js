@@ -98,4 +98,22 @@ router.put("/:id/Likes", async (req, res) => {
    }
 })
 
+router.post("/Comments/:id/Add", async (req, res) => {
+   console.log("COMMENTS ID POST FIRED");
+   try {
+      const petId = req.params.id;
+      const {ownerId, info, username} = req.body;
+      commentInfo = {
+         ownerId:ownerId,
+         info:info,
+         username:username
+      }
+      console.log("COMMENTS INFO", commentInfo)
+      updatedPet = await Pet.findByIdAndUpdate(petId , { $push: { comments: commentInfo } , new:true });
+      res.json(updatedPet);
+   } catch (err) {
+      res.status(400).json(err);
+   }
+});
+
 module.exports = router;
