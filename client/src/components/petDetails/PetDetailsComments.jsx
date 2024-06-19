@@ -19,35 +19,41 @@ export function PetDetailsComments() {
 
     const addCommentFunc = (e) => {
         e.preventDefault();
+        const checkValid = writeComment.trim();
+
+        if (checkValid.length === 0) {
+            return;
+        }
         petservice.postComment(writeComment, id, userId, username);
 
         setTimeout(() => {
             setCommentChange((prev) => (!prev));
+            setWriteComment("");
         }, 1000);
     }
 
     return (
         <div className={styles.commentsHolder}>
             Comment section
-            <form onSubmit={addCommentFunc}>
-                <input
-                    type="text"
+            {comments.length === 0 &&
+                <p>Be the first to comment!</p>
+            }
+            <form className={styles.formDiv} onSubmit={addCommentFunc}>
+                <textarea className={styles.textareaDiv}
+                placeholder="Do you like this pet?"
                     value={writeComment}
                     onChange={(e) => setWriteComment(e.target.value)}
                 />
-                <input type="submit" />
+                <input className={styles.submitCmnt} type="submit" />
             </form>
             {comments &&
-                <div>
+                <div className={styles.allComs}>
                     {comments.map((com) => {
-                        return (<div>
+                        return (<div key={com._id}>
                             <p>{com.info}</p>
                         </div>)
                     })}
                 </div>
-            }
-            {comments.length === 0 &&
-                <p>Be the first to comment!</p>
             }
         </div>
     )

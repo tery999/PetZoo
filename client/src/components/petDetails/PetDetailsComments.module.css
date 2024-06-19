@@ -1,0 +1,55 @@
+.commentsHolder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formDiv {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.textareaDiv {
+    width: 100%;
+    height: 90px;
+    font-size: 16px;
+    border: 3px solid rgb(234, 199, 204);
+    border-radius: 10px;
+    resize: none;
+    outline: none;
+    transition: 0.5s;
+    padding-bottom: 10px;
+}
+
+.textareaDiv:focus {
+    transition: 0.5s;
+    border: 3px solid rgb(239, 142, 158);
+}
+
+.submitCmnt {
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: center;
+    padding: none;
+    border: none;
+    border-radius: 10px;
+    background-color: pink;
+    transition: 0.5s;
+    font-size: 16px;
+}
+
+.submitCmnt:hover {
+    transition: 0.5s;
+    background-color: rgb(244, 156, 170);
+}
+
+.allComs {
+    width: 600px;
+}
