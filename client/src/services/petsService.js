@@ -109,7 +109,7 @@ export async function getComments(petId) {
         const data = await fetchedPet.json();
         const comments = data.comments;
         if (comments.length === 0) {
-            return null;
+            return [];
         } else {
             return comments;
         }

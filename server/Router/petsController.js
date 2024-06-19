@@ -34,7 +34,9 @@ router.get("/:id", async (req, res) => {
    try {
       const petId = req.params.id
       const onePet = await Pet.findById(petId)
-      // console.log("THIS IS SINGLE PET", onePet);
+      // if (!onePet) {
+      //    return res.status(404).json({error: "Pet doesnt exist"});
+      // }
       res.json(onePet);
    } catch (err) {
       console.log("THIS IS ERROR", err);

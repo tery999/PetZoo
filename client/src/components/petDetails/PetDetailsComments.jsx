@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
 import * as petservice from "../../services/petsService"
+import * as styles from "./PetDetailsComments.module.css"
 
 export function PetDetailsComments() {
     const { id } = useParams();
@@ -11,17 +12,22 @@ export function PetDetailsComments() {
     const [commentChange, setCommentChange] = useState(false);
     const [writeComment, setWriteComment] = useState("");
 
-    useEffect(() => {
 
-    })
+    useEffect(() => {
+        petservice.getComments(id).then((res) => setComments(res));
+    }, [commentChange])
 
     const addCommentFunc = (e) => {
         e.preventDefault();
-        petservice.postComment(writeComment,id,userId, username);
+        petservice.postComment(writeComment, id, userId, username);
+
+        setTimeout(() => {
+            setCommentChange((prev) => (!prev));
+        }, 1000);
     }
 
     return (
-        <div>
+        <div className={styles.commentsHolder}>
             Comment section
             <form onSubmit={addCommentFunc}>
                 <input
@@ -31,6 +37,18 @@ export function PetDetailsComments() {
                 />
                 <input type="submit" />
             </form>
+            {comments &&
+                <div>
+                    {comments.map((com) => {
+                        return (<div>
+                            <p>{com.info}</p>
+                        </div>)
+                    })}
+                </div>
+            }
+            {comments.length === 0 &&
+                <p>Be the first to comment!</p>
+            }
         </div>
     )
 }
