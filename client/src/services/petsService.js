@@ -98,3 +98,47 @@ export async function changeLikes (pet) {
     return likedPet.json();
 
 };
+
+export async function getComments(petId) {
+    try {
+        const URL = `http://localhost:3030/Pets/${petId}`;
+        const fetchedPet = await fetch(URL);
+        if (!fetchedPet.ok) {
+            return null;
+        }
+        const data = await fetchedPet.json();
+        const comments = data.comments;
+        if (comments.length === 0) {
+            return null;
+        } else {
+            return comments;
+        }
+        } catch (err) {
+            console.log("ERROR IN PET SERVICE GET ONE PET", err);
+            return null;
+        }
+}
+
+export async function postComment(commentInfo, petId, userId, username) {
+    let token = tokenFunc();
+    try {
+        const URL = `http://localhost:3030/Pets/Comments/${petId}/Add`;
+        const comment = { 
+            ownerId:userId ,
+            info:commentInfo,
+            username:username
+        }
+        const addedComment = await fetch(URL,  {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization" : token.token,
+              },
+            body: JSON.stringify(comment)
+        });
+    }   catch (err) {
+        console.log("ERROR IN PET SERVICE GET ONE PET", err);
+        return null;
+    }
+}
+
