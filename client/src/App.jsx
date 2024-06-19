@@ -47,13 +47,13 @@ function App() {
         <Route element={<PrivateRoutes logged={value.logged}/>}>
           <Route path="/Pets/Add" element={<AddPet />} />
           <Route path="/Pet/:id/Edit" element={<EditPet />} />
+          <Route path="/Profile" element={<Profile />} />
         </Route>
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Pet/:id" element={<PetDetails />} />
         <Route path="/Logout" element={<Logout />} />
         <Route path="/About" element={<About />} />
-        <Route path="/Profile" element={<Profile />} />
       </Routes>
     </UserContext.Provider>
   )

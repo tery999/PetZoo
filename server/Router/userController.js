@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.get('/profileInfo/:id', async(req, res) => {
+router.get('/profileInfo/:id', AuthMiddleware, async(req, res) => {
     try {
         const userId = req.params.id;
         console.log("TESTING PROFILE INFO")

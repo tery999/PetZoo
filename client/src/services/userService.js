@@ -57,6 +57,7 @@ export async function findUserInfo() {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
+            "Authorization" : tokenData.token,
         }
      });
      const data = await response.json();

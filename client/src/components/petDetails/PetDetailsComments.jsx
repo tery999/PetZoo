@@ -14,8 +14,10 @@ export function PetDetailsComments() {
 
 
     useEffect(() => {
-        petservice.getComments(id).then((res) => setComments(res));
+      petservice.getComments(id).then((res) => setComments(res));
     }, [commentChange])
+
+    console.log("TESTING COM",comments);
 
     const addCommentFunc = (e) => {
         e.preventDefault();
@@ -49,7 +51,11 @@ export function PetDetailsComments() {
             {comments &&
                 <div className={styles.allComs}>
                     {comments.map((com) => {
-                        return (<div key={com._id}>
+                        return (<div className={styles.IndividualCmnt} key={com._id}>
+                            <div>
+                                <h4>{com.username}</h4>
+                                <img src={com.ownerId.profileImg} alt="" />
+                            </div>
                             <p>{com.info}</p>
                         </div>)
                     })}

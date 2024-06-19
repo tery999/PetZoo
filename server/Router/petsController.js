@@ -33,7 +33,8 @@ router.get("/ByDate", async (req, res) => {
 router.get("/:id", async (req, res) => {
    try {
       const petId = req.params.id
-      const onePet = await Pet.findById(petId)
+      const onePet = await Pet.findById(petId).populate('comments.ownerId');
+      console.log("CHECK POPULATE", onePet);
       // if (!onePet) {
       //    return res.status(404).json({error: "Pet doesnt exist"});
       // }

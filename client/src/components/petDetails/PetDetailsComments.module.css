@@ -51,5 +51,27 @@
 }
 
 .allComs {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     width: 600px;
+}
+
+.IndividualCmnt {
+    display: flex;
+    gap: 15px;
+    justify-content: start;
+    border: 2px solid greenyellow;
+    background-color: white;
+
+}
+
+.IndividualCmnt p {
+    word-break: break-all;
+}
+
+.IndividualCmnt img {
+   width: 100px;
+   height: 100px;
 }

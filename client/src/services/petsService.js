@@ -101,6 +101,7 @@ export async function changeLikes (pet) {
 
 export async function getComments(petId) {
     try {
+        debugger;
         const URL = `http://localhost:3030/Pets/${petId}`;
         const fetchedPet = await fetch(URL);
         if (!fetchedPet.ok) {
