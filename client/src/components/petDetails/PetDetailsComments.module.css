@@ -40,7 +40,7 @@
     padding: none;
     border: none;
     border-radius: 10px;
-    background-color: pink;
+    background-color: #ffc0cb;
     transition: 0.5s;
     font-size: 16px;
 }
@@ -64,14 +64,44 @@
     justify-content: start;
     border: 2px solid greenyellow;
     background-color: white;
+    padding-right: 15px;
+    border-radius: 8px;
 
 }
 
 .IndividualCmnt p {
     word-break: break-all;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.IndividualCmnt h4 {
+    word-break: break-all;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .IndividualCmnt img {
    width: 100px;
    height: 100px;
+   border-radius: 50%;
+}
+
+.avatarName {
+ display: flex;
+ flex-direction: column;
+ justify-content: start;
+ align-items: center;
+ padding-left: 20px;
+ padding-right: 20px;
+ padding-bottom: 10px;
+ background-image: linear-gradient(to top, #9ce72a, #a0ed2b, #a4f32d, #a9f92e, #adff2f);
+}
+
+.IndividualCmnt:nth-child(2n) .avatarName {
+    background-image: linear-gradient(to bottom, #ffc0cb, #fcbac5, #f9b4c0, #f6aeba, #f3a8b5);
+}
+
+.IndividualCmnt:nth-child(2n) {
+    border: 2px solid pink;
 }

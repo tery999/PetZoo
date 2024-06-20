@@ -1,0 +1,348 @@
+[{
+  "_id": {
+    "$oid": "65b11aff23ddf97b143e5cf1"
+  },
+  "name": "Kiri",
+  "species": "cat",
+  "image": "https://hips.hearstapps.com/hmg-prod/images/neva-masquerade-royalty-free-image-1674509896.jpg?crop=0.611xw:1.00xh;0.196xw,0&resize=1200:*",
+  "color": "grey",
+  "age": 2,
+  "description": "sadasd",
+  "__v": 0,
+  "gender": "Female",
+  "likes": [
+    {
+      "$oid": "65b11aff23ddf97b143e5cf1"
+    },
+    {
+      "$oid": "65ba318426c6b2cf64424faf"
+    }
+  ],
+  "updatedAt": {
+    "$date": "2024-06-19T13:25:42.672Z"
+  },
+  "comments": [
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "very cool pet",
+      "username": "123",
+      "_id": {
+        "$oid": "6672dc380149928156ec64a7"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "very cool pet2",
+      "username": "123",
+      "_id": {
+        "$oid": "6672dc560149928156ec64ad"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65bccacedbe3ce5427ea10c2"
+  },
+  "name": "Oranje",
+  "species": "cat",
+  "image": "https://static.scientificamerican.com/sciam/cache/file/2AE14CDD-1265-470C-9B15F49024186C10_source.jpg?w=1200",
+  "color": "orange",
+  "age": 5,
+  "gender": "Male",
+  "description": "asdasdasd",
+  "ownerId": {
+    "$oid": "65ba318426c6b2cf64424faf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65bccc3bdbe3ce5427ea10c4"
+  },
+  "name": "TEST SUCCESFULL",
+  "species": "cat",
+  "image": "https://static.scientificamerican.com/sciam/cache/file/2AE14CDD-1265-470C-9B15F49024186C10_source.jpg?w=1200",
+  "color": "orange",
+  "age": 5,
+  "gender": "Male",
+  "description": "asdasdasd",
+  "ownerId": {
+    "$oid": "65ba318426c6b2cf64424faf"
+  },
+  "__v": 0,
+  "likes": [],
+  "updatedAt": {
+    "$date": "2024-03-05T17:29:27.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65c8ee4f4fc16335f4d622bd"
+  },
+  "name": "Some name",
+  "species": "cat",
+  "image": "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg",
+  "color": "grey",
+  "age": 4,
+  "gender": "Unknown/Other",
+  "description": "something",
+  "ownerId": {
+    "$oid": "65ba318426c6b2cf64424faf"
+  },
+  "__v": 0,
+  "likes": [
+    {
+      "$oid": "65ba318426c6b2cf64424faf"
+    }
+  ],
+  "updatedAt": {
+    "$date": "2024-03-01T10:59:44.610Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65c8ef3b4fc16335f4d622cf"
+  },
+  "name": "something",
+  "species": "cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat",
+  "image": "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg",
+  "color": "grey",
+  "age": 5,
+  "gender": "Unknown/Other",
+  "description": "asdasdasd",
+  "ownerId": {
+    "$oid": "65ba318426c6b2cf64424faf"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ccb0f519ddfbb55b92db7a"
+  },
+  "name": "Kote",
+  "species": "Cat",
+  "image": "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHx8MA%3D%3D",
+  "color": "grey",
+  "age": 1,
+  "gender": "Unknown/Other",
+  "description": "",
+  "ownerId": {
+    "$oid": "65ba318426c6b2cf64424faf"
+  },
+  "createdAt": {
+    "$date": "2024-02-14T12:24:21.652Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-19T12:01:58.346Z"
+  },
+  "__v": 0,
+  "comments": [
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "sdadwadw",
+      "username": "123",
+      "_id": {
+        "$oid": "6672c8b10149928156ec6382"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "sdadwadw dawdawdawdaw",
+      "username": "123",
+      "_id": {
+        "$oid": "6672c8b60149928156ec6386"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65dc5878c382294f2bb3d62c"
+  },
+  "name": "Dog with stick",
+  "species": "dog",
+  "image": "https://cdn.britannica.com/92/212692-050-D53981F5/labradoodle-dog-stick-running-grass.jpg",
+  "color": "white",
+  "age": 2,
+  "gender": "Unknown/Other",
+  "description": "",
+  "ownerId": {
+    "$oid": "65ba318426c6b2cf64424faf"
+  },
+  "createdAt": {
+    "$date": "2024-02-26T09:23:04.921Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-16T08:18:19.558Z"
+  },
+  "__v": 0,
+  "likes": [
+    {
+      "$oid": "65ba0afd936d25339cf9ac31"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65dc5977c382294f2bb3d633"
+  },
+  "name": "fat dog",
+  "species": "dog",
+  "image": "https://www.thesprucepets.com/thmb/hxWjs7evF2hP1Fb1c1HAvRi_Rw0=/2765x0/filters:no_upscale():strip_icc()/chinese-dog-breeds-4797219-hero-2a1e9c5ed2c54d00aef75b05c5db399c.jpg",
+  "color": "grey",
+  "age": null,
+  "gender": "Unknown/Other",
+  "description": "",
+  "ownerId": {
+    "$oid": "65ba318426c6b2cf64424faf"
+  },
+  "createdAt": {
+    "$date": "2024-02-26T09:27:19.164Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-18T18:59:48.333Z"
+  },
+  "__v": 0,
+  "likes": [
+    {
+      "$oid": "65ba318426c6b2cf64424faf"
+    },
+    {
+      "$oid": "65ba0afd936d25339cf9ac31"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65e754f9bec9dd9e6b37885d"
+  },
+  "name": "Chichi",
+  "species": "Chinchila",
+  "image": "https://petsandyou.bg/media/magefan_blog/2016/06/chinchilla-728x546.jpg",
+  "color": "grey",
+  "age": 1,
+  "gender": "Male",
+  "description": "small fur ball",
+  "ownerId": {
+    "$oid": "65ba318426c6b2cf64424faf"
+  },
+  "likes": [
+    {
+      "$oid": "666d746dd3d56b1242f2a9d7"
+    },
+    {
+      "$oid": "65ba0afd936d25339cf9ac31"
+    },
+    {
+      "$oid": "65ba318426c6b2cf64424faf"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-05T17:23:05.820Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-20T06:00:46.808Z"
+  },
+  "__v": 0,
+  "comments": [
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "hi",
+      "username": "123",
+      "_id": {
+        "$oid": "6672770cf81f0b88dbede6e9"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "dawdawdwa",
+      "username": "123",
+      "_id": {
+        "$oid": "66727757f81f0b88dbede6ed"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "fsefsefes",
+      "username": "123",
+      "_id": {
+        "$oid": "6672bf8faf91d984a25605c2"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "testing",
+      "username": "123",
+      "_id": {
+        "$oid": "6672c012af91d984a25605ca"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "testing2",
+      "username": "123",
+      "_id": {
+        "$oid": "6672c015af91d984a25605d4"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "fawfawfawfawfawfawfawfawfawfawfawfaw fawfawfawfawfawfawfawfaw fawfawfawfaw fawfawfawfawfawfawfawfawfawfawfawfawfawfaw fawfawfawfawfawfawfawfaw fawfawfawfaw fawfawfawfawfawfawfawfawfawfawfawfawfawfaw fawfawfawfawfawfawfawfaw fawfawfawfaw fawfaw",
+      "username": "123",
+      "_id": {
+        "$oid": "6672df160149928156ec64e1"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "daawdawdawdwadawdwdawdaawdawdawdwadawdwdawdaawdawdawdwadawdwdawdaawdawdawdwadawdwdawdaawdawdawdwadawdwdaw",
+      "username": "123",
+      "_id": {
+        "$oid": "6672e2840149928156ec65f4"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba318426c6b2cf64424faf"
+      },
+      "info": "test333",
+      "username": "555",
+      "_id": {
+        "$oid": "6673292f855b75002b82d841"
+      }
+    },
+    {
+      "ownerId": {
+        "$oid": "65ba0afd936d25339cf9ac31"
+      },
+      "info": "dawd adwdawd awdawd awd awd as fasfasfas dawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfas dawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfas dawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfasdawd adwdawd awdawd awd awd as fasfasfas",
+      "username": "123",
+      "_id": {
+        "$oid": "6673c58e7e700ccf074d1549"
+      }
+    }
+  ]
+}]

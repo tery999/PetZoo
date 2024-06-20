@@ -52,7 +52,7 @@ export function PetDetailsComments() {
                 <div className={styles.allComs}>
                     {comments.map((com) => {
                         return (<div className={styles.IndividualCmnt} key={com._id}>
-                            <div>
+                            <div className={styles.avatarName}>
                                 <h4>{com.username}</h4>
                                 <img src={com.ownerId.profileImg} alt="" />
                             </div>
