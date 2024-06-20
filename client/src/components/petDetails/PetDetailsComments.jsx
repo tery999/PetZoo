@@ -11,6 +11,7 @@ export function PetDetailsComments() {
     const [comments, setComments] = useState([]);
     const [commentChange, setCommentChange] = useState(false);
     const [writeComment, setWriteComment] = useState("");
+    const [lockButton, setLockButton] = useState(false);
 
 
     useEffect(() => {
@@ -27,11 +28,26 @@ export function PetDetailsComments() {
             return;
         }
         petservice.postComment(writeComment, id, userId, username);
+        setLockButton(true);
 
         setTimeout(() => {
             setCommentChange((prev) => (!prev));
             setWriteComment("");
+            setLockButton(false);
         }, 1000);
+    }
+
+    const deleteCommentFunc = (commentId) => {
+        console.log("COMMENT ID", commentId)
+        petservice.deleteComments(id, commentId );
+        setLockButton(true);
+
+        setTimeout(() => {
+            setCommentChange((prev) => (!prev));
+            setWriteComment("");
+            setLockButton(false);
+        }, 1000);
+
     }
 
     return (
@@ -46,17 +62,21 @@ export function PetDetailsComments() {
                     value={writeComment}
                     onChange={(e) => setWriteComment(e.target.value)}
                 />
-                <input className={styles.submitCmnt} type="submit" />
+                <input className={styles.submitCmnt} disabled={lockButton} type="submit" />
             </form>
             {comments &&
                 <div className={styles.allComs}>
                     {comments.map((com) => {
-                        return (<div className={styles.IndividualCmnt} key={com._id}>
+                        return (
+                        <div className={styles.IndividualCmnt} key={com._id}>
                             <div className={styles.avatarName}>
                                 <h4>{com.username}</h4>
                                 <img src={com.ownerId.profileImg} alt="" />
                             </div>
                             <p>{com.info}</p>
+                            {com.ownerId._id === userId &&
+                                <button disabled={lockButton} onClick={()=> deleteCommentFunc(com._id)} className={styles.xDelete}>X</button>
+                            }
                         </div>)
                     })}
                 </div>

@@ -4,13 +4,13 @@ const Pet = require("../Models/Pets");
 const AuthMiddleware = require("../AuthMiddleware");
 
 router.post("*", AuthMiddleware);
-router.put("*", AuthMiddleware);
+// router.put("*", AuthMiddleware);
 router.delete("*", AuthMiddleware);
 
 router.post("/Add", async (req, res) => {
    const petDetails = req.body;
    try {
-      console.log(petDetails);
+      // console.log(petDetails);
       await Pet.create(petDetails);
    } catch (e) {
       console.log(e);
@@ -20,13 +20,13 @@ router.post("/Add", async (req, res) => {
 
 router.get("/", async (req, res) => {
    const allPets = await Pet.find()
-   console.log(allPets);
+   // console.log(allPets);
    res.json(allPets);
 })
 
 router.get("/ByDate", async (req, res) => {
    const allPets = await Pet.find().sort({ createdAt: -1 })
-   console.log(allPets);
+   // console.log(allPets);
    res.json(allPets);
 })
 
@@ -34,7 +34,7 @@ router.get("/:id", async (req, res) => {
    try {
       const petId = req.params.id
       const onePet = await Pet.findById(petId).populate('comments.ownerId');
-      console.log("CHECK POPULATE", onePet);
+      // console.log("CHECK POPULATE", onePet);
       // if (!onePet) {
       //    return res.status(404).json({error: "Pet doesnt exist"});
       // }
@@ -48,7 +48,7 @@ router.get("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
    try {
       const petId = req.params.id
-      console.log("THIS IS THE PET ID", petId);
+      // console.log("THIS IS THE PET ID", petId);
       const deletedPet = await Pet.findByIdAndDelete(petId);
       res.json({ message: "Delete succesfully" });
    } catch (err) {
@@ -79,13 +79,10 @@ router.put("/:id/Likes", async (req, res) => {
       const userId = body.userId;
       const userLiked = await Pet.findById(petId);
       if (userLiked.likes.includes(userId)) {
-         console.log("USER ALREADY EXISTS");
         const returnedPet = await Pet.findByIdAndUpdate(petId, {
             $pull: { "likes": userId } ,
             new: true
          })
-         console.log("RETURNED PET " , returnedPet);
-         console.log("RETURNED PET LIKES" , returnedPet.likes);
          res.json( returnedPet.likes);
       } else {
          console.log("USER DOESNT EXIST");
@@ -102,7 +99,6 @@ router.put("/:id/Likes", async (req, res) => {
 })
 
 router.post("/Comments/:id/Add", async (req, res) => {
-   console.log("COMMENTS ID POST FIRED");
    try {
       const petId = req.params.id;
       const {ownerId, info, username} = req.body;
@@ -111,12 +107,27 @@ router.post("/Comments/:id/Add", async (req, res) => {
          info:info,
          username:username
       }
-      console.log("COMMENTS INFO", commentInfo)
       updatedPet = await Pet.findByIdAndUpdate(petId , { $push: { comments: commentInfo } , new:true });
       res.json(updatedPet);
    } catch (err) {
       res.status(400).json(err);
    }
 });
+
+router.put("/Comments/:id/Delete", async (req,res)=> {
+   try {
+      const petId = req.params.id;
+      console.log("PETIDIS", petId)
+      const {commentId} = req.body;
+      console.log("COMMENT ID IS", commentId)
+      const deletedComment = await Pet.findOneAndUpdate( 
+         {_id: petId},
+         {$pull: { comments: {_id: commentId}}}
+         )
+      res.json({message: "Comment Deleted"});
+   } catch (err) {
+      res.status(400).json(err);
+   }
+})
 
 module.exports = router;

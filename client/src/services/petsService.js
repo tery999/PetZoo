@@ -24,7 +24,7 @@ export async function getAllPets () {
     const URL = "http://localhost:3030/Pets";
     const fetchedPets = await fetch(URL);
     const data = await fetchedPets.json();
-    console.log(data);
+    // console.log(data);
     return data;
 };
 
@@ -32,7 +32,7 @@ export async function getNewestPets() {
     const URL = "http://localhost:3030/Pets/ByDate";
     const fetchedPets = await fetch(URL);
     const data = await fetchedPets.json();
-    console.log(data);
+    // console.log(data);
     return data;
 };
 
@@ -48,7 +48,7 @@ export async function deletePet (id) {
           },
     });
     const data = await deletedPet.json();
-    console.log(data);
+    // console.log(data);
     return data;
 };
 
@@ -61,7 +61,7 @@ export async function getOnePet (id) {
         return null;
     }
     const data = await fetchedPets.json();
-    console.log("THIS IS SINGLE PET CLT", data);
+    // console.log("THIS IS SINGLE PET CLT", data);
     return data;
     } catch (err) {
         console.log("ERROR IN PET SERVICE GET ONE PET", err);
@@ -136,6 +136,25 @@ export async function postComment(commentInfo, petId, userId, username) {
                 "Authorization" : token.token,
               },
             body: JSON.stringify(comment)
+        });
+    }   catch (err) {
+        console.log("ERROR IN PET SERVICE GET ONE PET", err);
+        return null;
+    }
+}
+
+export async function deleteComments(petId, commentId) {
+    let token = tokenFunc();
+    debugger;
+    try {
+        const URL = `http://localhost:3030/Pets/Comments/${petId}/Delete`;
+        const deletedComnt = await fetch(URL, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization" : token.token,
+              },
+            body: JSON.stringify({commentId})
         });
     }   catch (err) {
         console.log("ERROR IN PET SERVICE GET ONE PET", err);
