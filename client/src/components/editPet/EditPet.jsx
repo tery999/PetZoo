@@ -5,6 +5,8 @@ import * as styles from "./EditPet.module.css";
 import { petErrors } from "../../services/petErrors"
 import {useNavigate} from  "react-router-dom"
 import { UserContext } from "../../contexts/userContext";
+import petBkg from "./cute-animal-anime-e5b9oin5itw8sczg.jpg";
+
 
 export default function EditPet() {
     // debugger;
@@ -35,7 +37,7 @@ export default function EditPet() {
         e.preventDefault();
         const results = petErrors(pet);
         setError(results);
-        if (!error) {
+        if (Object.keys(results).length === 0) {
             PetService.editPet(pet);
         }
     }
@@ -46,6 +48,7 @@ export default function EditPet() {
             }
             {pet &&
                 <form className={styles.editForm} onSubmit={editHandler}>
+                    <img className={styles.bkgImage} src={petBkg} alt="" />
                     <div className={styles.firstDiv}>
                         <div>
                             <label htmlFor="name"> Name:
@@ -138,7 +141,7 @@ export default function EditPet() {
                     </div>
 
                     <div>
-                        <input type="submit" />
+                        <input type="submit" value="Edit" />
                     </div>
                 </form>
 

@@ -4,7 +4,7 @@ const Pet = require("../Models/Pets");
 const AuthMiddleware = require("../AuthMiddleware");
 
 router.post("*", AuthMiddleware);
-// router.put("*", AuthMiddleware);
+router.put("*", AuthMiddleware);
 router.delete("*", AuthMiddleware);
 
 router.post("/Add", async (req, res) => {
